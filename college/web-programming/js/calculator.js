@@ -39,9 +39,9 @@ const ARIFMETICS = ["/", "*", "**", "-", "+"];
 CALCULATOR_BUTTONS.forEach(button => button.addEventListener('click', ButtonCalculatorClick));
 
 /**
- * Обработка нажатия на кнопку калькулятора
+ * Обробка натискання на кнопку калькулятора
  *
- * Обрабатываем группы цифровые, математические действия, вычисление ....
+ * Обробляємо групи цифрові, математичні дії, обчислення.
  *
  * @param	Object	event	событие нажатия на кнопку
  * @return 	boolean 		возвращает false при ошибке
@@ -135,7 +135,7 @@ function ButtonCalculatorClick(event)
 
 
 /**
- * Удаляет последнее число в строке (до арифмитеческого занака)
+ * Видаляє останнє число у рядку (до арифметичного знака)
  *
  * @param	string	value	
  * @return 	string 		

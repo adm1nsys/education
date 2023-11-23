@@ -1,5 +1,5 @@
-const CALCULATOR_SCREEN = document.querySelector('table#calculator div#calculatorDisplay');
-const CALCULATOR_STATUS = document.querySelector('table#calculator div#calculatorStatus');
+const CALCULATOR_SCREEN = document.querySelector('table#calulator div#claculatorDisplay');
+const CALCULATOR_STATUS = document.querySelector('table#calulator div#claculatorStatus');
 const ARIFMETICS = ["/", "*", "**", "-", "+"];
 
 const FIRST_NUMBER_INDEX = 0;
@@ -7,22 +7,23 @@ const FIRST_NUMBER_INDEX = 0;
 var numbers = ['0'];
 var arifmetic = [''];
 
-document.querySelectorAll('table#calculator button.number').forEach(button => button.addEventListener('click', ButtonNumberClick));
-document.querySelectorAll('table#calculator button.edit').forEach(button => button.addEventListener('click', ButtonEditClick));
-document.querySelectorAll('table#calculator button.arithmetic').forEach(button => button.addEventListener('click', ButtonArifmeticClick));
-document.querySelectorAll('table#calculator button.result').forEach(button => button.addEventListener('click', ButtonResultClick));
+document.querySelectorAll('table#calulator button.number').forEach(button => button.addEventListener('click', ButtonNumberClick));
+document.querySelectorAll('table#calulator button.edit').forEach(button => button.addEventListener('click', ButtonEditClick));
+document.querySelectorAll('table#calulator button.arifmetic').forEach(button => button.addEventListener('click', ButtonArifmeticClick));
+document.querySelectorAll('table#calulator button.result').forEach(button => button.addEventListener('click', ButtonResultClick));
 
 /**
- * Обработка нажатия на кнопку калькулятора
- * Обрабатываем цифровые
+ * Обробка натискання на кнопку калькулятора
+ * Обробляємо цифрові
  *
- * @param	Object	event	событие нажатия на кнопку
- * @return 	string
+ * @param Object event подія натискання на кнопку
+ * @return string
 **/
 function ButtonNumberClick(event)
 {
 	const VALUE = event.target.value;
 	const CURENT_NUMBER_INDEX = numbers.length - 1;
+	
 	if (numbers[CURENT_NUMBER_INDEX] == '0') {
 		numbers[CURENT_NUMBER_INDEX] = VALUE;
 	} else {
@@ -32,12 +33,12 @@ function ButtonNumberClick(event)
 	return numbers[CURENT_NUMBER_INDEX];
 }
 /**
- * Обработка нажатия на кнопку калькулятора
- * Обрабатываем редактирование
+ * Обробка натискання на кнопку калькулятора
+ * Обробляємо редагування
  *
- * @param	Object	event	событие нажатия на кнопку
- * @return 	boolean
- * @todo 	delete last symbol
+ * @param Object event подія натискання на кнопку
+ * @return boolean
+ * @todo delete last symbol
 **/
 function ButtonEditClick(event)
 {
@@ -56,51 +57,20 @@ function ButtonEditClick(event)
 		break;
 		
 		case '<-':
-	    if (numbers[CURENT_NUMBER_INDEX].length > 1) {
-	        numbers[CURENT_NUMBER_INDEX] = numbers[CURENT_NUMBER_INDEX].slice(0, -1);
-	    } else {
-	        numbers[CURENT_NUMBER_INDEX] = '0';
-	    }
-	    ShowOnScreen(CALCULATOR_SCREEN, numbers, arifmetic);
+			// numbers [CURENT_NUMBER_INDEX];
+			ShowOnScreen(CALCULATOR_SCREEN, numbers, arifmetic);
 		break;
-		 case 'inverse': // Обратное число ¹/X
-            if (numbers[CURENT_NUMBER_INDEX] != '0') {
-                numbers[CURENT_NUMBER_INDEX] = (1 / parseFloat(numbers[CURENT_NUMBER_INDEX])).toString();
-                ShowOnScreen(CALCULATOR_SCREEN, numbers, arifmetic);
-            }
-            break;
-        
-        case 'square': // Возведение в квадрат X²
-            numbers[CURENT_NUMBER_INDEX] = (Math.pow(parseFloat(numbers[CURENT_NUMBER_INDEX]), 2)).toString();
-            ShowOnScreen(CALCULATOR_SCREEN, numbers, arifmetic);
-            break;
-        
-        case 'sqrt': // Квадратный корень ²√X
-            if (parseFloat(numbers[CURENT_NUMBER_INDEX]) >= 0) {
-                numbers[CURENT_NUMBER_INDEX] = (Math.sqrt(parseFloat(numbers[CURENT_NUMBER_INDEX]))).toString();
-                ShowOnScreen(CALCULATOR_SCREEN, numbers, arifmetic);
-            }
-            break;
-             case 'percent': // Процент %
-            numbers[CURENT_NUMBER_INDEX] = (parseFloat(numbers[CURENT_NUMBER_INDEX]) / 100).toString();
-            ShowOnScreen(CALCULATOR_SCREEN, numbers, arifmetic);
-            break;
-        
-        case 'changeSign': // Смена знака +/-
-            numbers[CURENT_NUMBER_INDEX] = (-1 * parseFloat(numbers[CURENT_NUMBER_INDEX])).toString();
-            ShowOnScreen(CALCULATOR_SCREEN, numbers, arifmetic);
-            break;
 	}
 }
 /**
- * Обработка нажатия на кнопку калькулятора
- * Обрабатываем математические действия
+ * Обробка натискання на кнопку калькулятора
+ * Обробляємо математичні дії
  *
- * @param	Object	event	событие нажатия на кнопку
- * @return 	string
+ * @param Object event подія натискання на кнопку
+ * @return string
 **/
 function ButtonArifmeticClick(event)
-{	
+{
 	const VALUE = event.target.value;
 	const CURENT_NUMBER_INDEX = arifmetic.length - 1;
 	
@@ -112,51 +82,45 @@ function ButtonArifmeticClick(event)
 	return arifmetic
 }
 /**
- * Обработка нажатия на кнопку калькулятора
- * Обрабатываем вычисление
+ * Обробка натискання на кнопку калькулятора
+ * Обробляємо обчислення
  *
- * @param	Object	event	событие нажатия на кнопку
- * @return 	number 
- * @todo	
+ * @param Object event подія натискання на кнопку
+ * @return number
+ * @todo
 **/
 function ButtonResultClick(event)
 {
-    const CURENT_NUMBER_INDEX = arifmetic.length - 1;
-    switch (arifmetic[CURENT_NUMBER_INDEX]) {
-        case '/':
-            numbers = [(numbers[0] / numbers[1])];
-            break;
-        case '*':
-            numbers = [(numbers[0] * numbers[1])];
-            break;
-        case '**':
-            numbers = [Math.pow(numbers[0], numbers[1])];
-            break;
-        case '-':
-            numbers = [(numbers[0] - numbers[1])];
-            break;
-        case '+':
-            numbers = [(Number(numbers[0]) + Number(numbers[1]))];
-            break;
-    }
-    arifmetic = [''];
-    ShowOnScreen(CALCULATOR_SCREEN, numbers, arifmetic);
+	const CURENT_NUMBER_INDEX = arifmetic.length - 1;
+	switch (arifmetic[CURENT_NUMBER_INDEX]) {
+		case '/':
+			numbers = [(numbers[0] / numbers[1])];
+		break;
+		
+		case '-':
+			numbers = [(numbers[0] - numbers[1])];
+		break;
+		
+		case '+':
+			numbers = [(Number(numbers[0]) + Number(numbers[1]))];
+		break;
+	}
+	arifmetic = [''];
+	ShowOnScreen(CALCULATOR_SCREEN, numbers, arifmetic);
 }
 /**
- * Вывод на экран
+ * Виведення на екран
  *
- * @param	object screen
- * @param	array numbers
- * @param	string arifmetic
- * @return 	number
- * @todo	use array for show
+ * @param object screen
+ * @param array numbers
+ * @param string arifmetic
+ * @return number
+ * @todo use array for show
 **/
-function ShowOnScreen(screen, numbers, arifmetic) {
-    let result = "";
-    for (let i = 0; i < Math.max(numbers.length, arifmetic.length); i++) {
-        if (numbers[i] != null) result += numbers[i];
-        if (arifmetic[i] != null) result += ' ' + arifmetic[i] + ' ';
-    }
-    screen.innerHTML = result;
-    return result;
+function ShowOnScreen(screen, numbers, arifmetic)
+{
+	var result = numbers[0] + '' + arifmetic[0] + '<br>' +
+				(numbers[1] ? numbers[1] : '');
+	screen.innerHTML = result;
+	return result;
 }

@@ -35,7 +35,7 @@ var fios = [
 	'Шадура Владислав Дмитрович'
 ];
 
-// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function
+// https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Function
 /**
  * Выводит в консоль переданное  значение
  * @param {any} a по умолчнаию 10
@@ -47,7 +47,7 @@ function myFirstFunciton(a = 10)
 	return a;
 }
 
-// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/class
+// https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/class
 
 class Polygon {
 	constructor(height, width) {
@@ -65,7 +65,7 @@ class Polygon {
 
 class Square extends Polygon {
 	constructor(length) {
-		// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/super
+		// https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/super
 		super(length, length);
 		this.name = 'Square';
 	}
@@ -75,7 +75,7 @@ var polygon = new Polygon(20, 30);
 var square = new Square(10);
 
 
-// https://developer.mozilla.org/ru/docs/Web/API/console
+// https://developer.mozilla.org/en/docs/Web/API/console
 /**
 	%s	строка
 	%i	целое
@@ -86,22 +86,22 @@ var square = new Square(10);
 
 console.info('%cpolygon = %O, %cpolygon = %s', 'background-color:green', polygon, 'color:red', polygon);
 
-// https://developer.mozilla.org/ru/docs/Web/API/Window/alert
+// https://developer.mozilla.org/en/docs/Web/API/Window/alert
 alert('AAAA!!!!!');
 
-//https://developer.mozilla.org/ru/docs/Web/API/Window/confirm
+//https://developer.mozilla.org/en/docs/Web/API/Window/confirm
 
-//https://developer.mozilla.org/ru/docs/Web/API/Window/prompt
+//https://developer.mozilla.org/en/docs/Web/API/Window/prompt
 
 var userName = prompt('Введите имя: ', 'Вася');
 console.info('name: %s', userName);
 
-// https://developer.mozilla.org/ru/docs/Web/API/EventTarget/addEventListener
+// https://developer.mozilla.org/en/docs/Web/API/EventTarget/addEventListener
 
-// https://developer.mozilla.org/ru/docs/Web/API/Document/getElementsByTagName
-// https://developer.mozilla.org/ru/docs/Web/API/Document/getElementsByName
-// https://developer.mozilla.org/ru/docs/Web/API/Document/getElementsByClassName
-// https://developer.mozilla.org/ru/docs/Web/API/Document/getElementById
+// https://developer.mozilla.org/en/docs/Web/API/Document/getElementsByTagName
+// https://developer.mozilla.org/en/docs/Web/API/Document/getElementsByName
+// https://developer.mozilla.org/en/docs/Web/API/Document/getElementsByClassName
+// https://developer.mozilla.org/en/docs/Web/API/Document/getElementById
 
 document.getElementById('buttonSendToResult').addEventListener('click', ClickButton);
 
@@ -114,9 +114,39 @@ var firstinput = document.querySelector('#firstInput');
 */
 function ClickButton(event)
 {
-	// https://developer.mozilla.org/ru/docs/Web/API/Document/querySelectorAll
-	// https://developer.mozilla.org/ru/docs/Web/API/Document/querySelector
+	// https://developer.mozilla.org/en/docs/Web/API/Document/querySelectorAll
+	// https://developer.mozilla.org/en/docs/Web/API/Document/querySelector
 	console.info(event);
 	divResult.innerHTML = firstinput.value;
 }
 
+
+
+/* https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date */
+var date = new Date();
+console.log(date.getTime());
+// var timer = 0;
+
+/* https://developer.mozilla.org/en-US/docs/Web/API/setTimeout */
+var timer01 = setTimeout(ShowTimeout, 5000);
+
+function ShowTimeout()
+{
+	console.log('ShowTimeout: ' + (new Date()).getTime());
+	if (document.querySelector('input[type="text"]').value == "") {
+		console.log('Enter Text');
+		return setTimeout(ShowTimeout, 5000)
+	}
+	console.log(document.querySelector('input[type="text"]').value);
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/API/setInterval */
+var timer02 = setInterval(ShowInterval, 500);
+
+function ShowInterval()
+{
+	var date2 = new Date();
+	var interval = Math.floor((date2.getTime() - date.getTime()) / 1000);
+	// timer++;
+	document.querySelector("#content").innerHTML += '<br>' + interval + ' - ' + timer;
+}
