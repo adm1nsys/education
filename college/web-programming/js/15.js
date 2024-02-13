@@ -29,6 +29,27 @@
 			- сортіровка по полям
 */
 
+$(document).ready(function() {
+	console.info('loaded');
+	
+	document.querySelectorAll('a').forEach(a => {
+		a.style.backgroundColor = 'red';
+		a.style.color = 'yellow';
+	});
+
+	$('a')
+		.css('background-color', 'purple')
+		.css('color', 'pink');
+		
+	ShowRecords();
+});
+
+const RECORD_PLAYER_NAME = 0;
+const RECORD_MOVES = 1;
+const RECORD_TIME_START = 2;
+const RECORD_GAME_TIME = 3;
+const RECORD_FIELD_SIZE = 4;
+
 const FIELD_SIZE = document.querySelector("#iFieldSize");
 const START_GAME = document.querySelector("#bStartGame");
 const MOVES_COUNT = document.querySelector("#movesCount");
@@ -40,10 +61,16 @@ const GAME_RECORDS = document.querySelector("#gameRecords");
 var moves = 0;
 var fieldSize = 4;
 
+var playerName = localStorage.getItem('playerName') ?? '';
+var records = localStorage.getItem('records') ? JSON.parse(localStorage.getItem('records')) : [];
+
 var startGameTime;
 var timerId;
 
+
+
 START_GAME.addEventListener('click', StartGame);
+FIELD_SIZE.addEventListener('change', ShowRecords);
 
 /*
  * Start Game
@@ -70,6 +97,9 @@ function StartGame(event)
 	var time = new Date();
 	startGameTime = time.getTime();
 	
+	if (timerId) {
+		clearInterval(timerId);
+	}
 	timerId = setInterval(ShowTime, 500);
 	
 	// FIELD_SIZE.setAttribute('disabled', true);
@@ -79,10 +109,14 @@ function StartGame(event)
 */
 function ShowTime()
 {
-	var date2 = new Date();
-	var interval = date2.getTime() - startGameTime;
+	var interval = GetGameTime();
 	GAME_TIME.innerHTML = FormatTime(interval);
 }	
+function GetGameTime()
+{
+	var date2 = new Date();
+	return date2.getTime() - startGameTime;
+}
 /*
  * @TODO format time to mm:ss.s
  * @param integer interval time in miliseconds
@@ -162,18 +196,111 @@ function ClickOnCell(event)
 		moves++;
 		ShowMoves();
 		if (CheckEndGame()) {
-		// 	EndGame();
+			EndGame();
 		}
 		return;
 	}
 	console.log('CAN NOT MOVE');
 }
 /*
+ * запит ім'я
+ * збереження рекорду
+*/
+function EndGame()
+{
+	let gameInterval = GetGameTime();
+	clearInterval(timerId);
+	GAME_FIELD.querySelectorAll('td').forEach((td) => {
+		td.setAttribute('value', td.getAttribute('goal')); 
+		td.innerHTML = td.getAttribute('goal');
+	}); 
+	HighlightRightNumbers(GAME_FIELD, fieldSize);
+	setTimeout(SaveRecord, 30, gameInterval);
+}
+function SaveRecord(gameInterval)
+{
+	playerName = prompt('Enter Name', playerName);
+	localStorage.setItem('playerName', playerName);
+	var record = [
+		playerName,
+		moves,
+		startGameTime,
+		gameInterval,
+		fieldSize
+	];
+	// https://uk.wikipedia.org/wiki/JSON
+	record = {
+		'playerName': playerName,
+		'moves': moves,
+		'startGameTime': startGameTime,
+		'gameInterval': gameInterval,
+		'fieldSize': fieldSize
+	};
+	records.push(record);
+	
+	// https://developer.mozilla.org/ru/docs/Learn/JavaScript/Objects/JSON
+	localStorage.setItem('records', JSON.stringify(records));
+	ShowRecords();
+}
+/*
+4. Відображення рекордів
+		{Дата, Ім'я, розмір поля, кількість xодів, час}
+		- відобразити таблицю
+			- фільтр по розміру поля
+			- сортіровка по полям
+*/
+function ShowRecords(event = null)
+{
+	var filterFieldSize = Number(FIELD_SIZE.value);
+	var result = `<table border="1">
+			<tr>
+				<th order="asc" value="startGameTime">Date</th>
+				<th order="asc" value="playerName">Name</th>
+				<th order="asc" value="moves">Moves</th>
+				<th order="asc" value="gameInterval">Time</th>
+			</tr>
+		`;
+		
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+	var fieldToSort = 'gameInterval';
+	var orderToSort = 'asc';
+	
+	if (event) {
+		fieldToSort = event.target.getAttribute('value');
+		orderToSort = event.target.getAttribute('order') == 'asc' ? 'desc' : 'asc';
+		
+	}
+	records.sort((a, b) => {
+		if (orderToSort == 'desc') {
+			return a[fieldToSort] - b[fieldToSort];
+		} else {
+			return b[fieldToSort] - a[fieldToSort];
+		}
+	});
+	records.forEach(record => {
+		if (filterFieldSize == record.fieldSize) {
+			result += `<tr>
+				<td>${(new Date(record.startGameTime)).toLocaleString()}</td>
+				<td>${record.playerName}</td>
+				<td>${record.moves}</td>
+				<td>${FormatTime(record.gameInterval)}</td>
+			</tr>`;
+		}
+	});
+	result += '</table>';
+	GAME_RECORDS.innerHTML = result;
+	GAME_RECORDS.querySelector('th[value="' + fieldToSort + '"]').setAttribute('order', orderToSort);
+	GAME_RECORDS.querySelectorAll('th').forEach(th => th.addEventListener('click', ShowRecords));
+}
+/*
  * @TODO перевірка всіх
+ * @return	boolean 
 */
 function CheckEndGame()
 {
-	
+	let result = false;
+	// @todo перевірка
+	return result;
 }
 /*
  * @TODO переміщення числа та вільного міста

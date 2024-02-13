@@ -31,6 +31,6 @@
 	border-top-right-radius: 10px;
 }
 
-.active {
+#menu a.active {
 	color: black;
 }
