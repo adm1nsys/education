@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>МЗ-21 лекция 2 Column Vue</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <style>
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        input[type="number"] {
+            width: 120px;
+            padding: 5px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="sidebar">
+            <h1>Vue Weather App</h1>
+            <button @click="getPosition">Get Position</button>
+            <button @click="getWeather">Get Weather</button>
+            <form @submit.prevent="getWeather">
+                <input type="number" v-model.number="latitude" placeholder="Latitude" required>
+                <input type="number" v-model.number="longitude" placeholder="Longitude" required>
+                <input type="number" v-model.number="pastDays" placeholder="Days in the past (0-90)" min="0" max="90">
+                <input type="number" v-model.number="futureDays" placeholder="Days in the future (0-16)" min="0" max="16">
+                <div v-for="option in options" :key="option.value">
+                    <input type="checkbox" :id="option.value" :value="option.value" v-model="selectedOptions">
+                    <label :for="option.value">{{ option.text }}</label>
+                </div>
+                <button type="submit">Get Weather</button>
+            </form>
+        </div>
+        <div id="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date and Time</th>
+                        <th v-if="isSelected('temperature_2m')">Temperature (2m)</th>
+                        <th v-if="isSelected('relative_humidity_2m')">Humidity (2m)</th>
+                        <th v-if="isSelected('rain')">Rain</th>
+                        <th v-if="isSelected('cloudcover')">Cloud Cover</th>
+                        <th v-if="isSelected('windspeed_10m')">Wind Speed (10m)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(record, index) in weatherData" :key="index">
+                        <td>{{ record.time }}</td>
+                        <td v-if="isSelected('temperature_2m')">{{ record.temperature }} °C</td>
+                        <td v-if="isSelected('relative_humidity_2m')">{{ record.humidity }} %</td>
+                        <td v-if="isSelected('rain')">{{ record.rain }} mm</td>
+                        <td v-if="isSelected('cloudcover')">{{ record.cloudCover }} %</td>
+                        <td v-if="isSelected('windspeed_10m')">{{ record.windSpeed }} km/h</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+		<script src="js/jQuery_vue.js"></script>
+
+</body>
+</html>

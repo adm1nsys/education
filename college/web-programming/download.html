@@ -76,11 +76,11 @@
 		<script>
 			15;
 		</script>
-		
+
 	</head>
 	<body>
 		<div id="header">
-			<h2 id="EDUname"> 
+			<h2 id="EDUname">
 				ВСП Харківський фаховий коледж<br>
 				інформаційних технологій<br>
 				Національного аерокосмічного<br>
@@ -99,7 +99,7 @@
 				<a href="calculator2.html" class="active" >calculator2</a>
 			</div>
 		</div>
-		
+
 <div id="container">
     <div id="sidebar">
         <h1>calculator</h1>
@@ -110,27 +110,27 @@
     </div>
 </div>
 
-		
+
 		<div id="footer">
 			&copy;2023
 		</div>
 		<script>
 			document.querySelector('button').addEventListener('click', ClickDownload);
-			
-			
+
+
 			function download(filename, text) {
 				var element = document.createElement('a');
 				element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
 				element.setAttribute('download', filename);
-				
+
 				element.style.display = 'none';
 				document.body.appendChild(element);
-				
+
 				element.click();
-				
+
 				document.body.removeChild(element);
 			}
-				
+
 			function ClickDownload()
 			{
 				download("hello.txt", document.querySelector("#ta").value);

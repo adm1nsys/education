@@ -1,134 +1,95 @@
-// https://api.jquery.com/jQuery.ajax/
-
-const TIME_API_URL = 'http://worldtimeapi.org/api/';
-const WEATHER_API_URL = 'https://api.open-meteo.com/v1/forecast';
-
-
 $(document).ready(function() {
-	var jqxhr = $.ajax( "example.php" )
-		.done(function() {
-			console.log( "success" );
-		})
-		.fail(function() {
-			console.log( "error" );
-		})
-		.always(function() {
-			console.log( "complete" );
-		});
-		
-	$("#getWeather").on('click', getWeather);
-	$("#getPosition").on('click', getPosition);
-	 	
-
-	$.ajax({
-		method: 'GET',
-		url: TIME_API_URL + 'timezone',
-		data: {
-			test: 22
-		},
-		dataType: 'json',
-		timeout: 1000,
-		success: function (data) {
-			let result = ''
-			data.forEach(row => result += `<a href="${row}">${row}</a><br>`);
-			// data.forEach(row => result += '<a href="' + row + '>' + row + '</a>');
-			$("#content").html(result);
-			$("#content a").on('click', LoadTime);
-		},
-		error: function (error) {
-			console.info('timeout: %O', error);
-		}
-	});
+    $("#getWeather").on('click', function() {
+        createTable();
+        getWeather();
+    });
+    $("#getPosition").on('click', getPosition);
 });
 
-function LoadTime(event)
-{
-	var timeZone = event.target.getAttribute('href');
-	LoadTimeByTimeZone(timeZone, LoadTimeCallback);
-	return false;
+function createTable() {
+    $("#weatherTable").remove();
+
+    var table = $('<table id="weatherTable"><thead><tr></tr></thead><tbody></tbody></table>');
+    var headerRow = table.find("thead tr");
+
+    headerRow.append("<th>Date and Time</th>");
+
+    $("input[name='hourly[]']:checked").each(function() {
+        var paramName = $(this).parent().text().trim();
+        headerRow.append("<th>" + paramName + "</th>");
+    });
+
+    $("#content").append(table);
 }
 
-function LoadTimeCallback(data)
-{
-	console.info(data);
-	let result = ''
-	
-	for (const [key, value] of Object.entries(data)) {
-		result += (`<b>${key}</b>: ${value}<br>`);
-	}
-	
-	for (var key in data) {
-		result += (`<b>${key}</b>: ${data[key]}<br>`);
-	}
-	$("#content").html(result);
+function getWeather() {
+    var params = $("#settingsForm").serialize();
+
+    $.ajax({
+        method: 'GET',
+        url: 'https://api.open-meteo.com/v1/forecast',
+        data: params,
+        dataType: 'json',
+        success: function (data) {
+            console.log("Полученные данные о погоде:", data);
+            updateTable(data);
+        },
+        error: function (error) {
+            console.error("Ошибка запроса к API погоды:", error);
+        }
+    });
 }
 
-function LoadTimeByTimeZone(timeZone, callback)
-{
-	$.ajax({
-		method: 'GET',
-		url: TIME_API_URL + 'timezone/' + timeZone,
-		dataType: 'json',
-		timeout: 5000,
-		success: function (data) {
-			callback(data);
-			return data;
-		},
-		error: function (error) {
-			return [];
-		}
-	});
+function updateTable(data) {
+    if (!data.hourly || !data.hourly.time) return;
+
+    var tableBody = $("#weatherTable tbody");
+    data.hourly.time.forEach((time, index) => {
+        var row = $("<tr></tr>");
+        row.append("<td>" + time + "</td>");
+
+        $("input[name='hourly[]']:checked").each(function() {
+            var parameter = $(this).val();
+            var value = data.hourly[parameter][index];
+            row.append("<td>" + (value != null ? value : 'N/A') + "</td>");
+        });
+
+        tableBody.append(row);
+    });
 }
 
-function getWeather()
-{
-	$.ajax({
-		method: 'GET',
-		url: WEATHER_API_URL,
-		data: $("#settingsForm").serialize(),
-		// data: {
-		// 	latitude: $('#latitude').val(),
-		// 	longitude: $('#longitude').val(),
-		// 	hourly: 'temperature_2m,relative_humidity_2m,rain,cloud_cover,wind_speed_10m',
-		// 	wind_speed_unit: 'ms',
-		// },
-		dataType: 'json',
-		timeout: 5000,
-		success: function (data) {
-			console.info(data);
-		},
-		error: function (error) {
-			console.error(error);
-		}
-	});
+
+function addDataToRow(parameter, data, index) {
+    if ($(`input[name='hourly[]'][value='${parameter}']`).is(':checked')) {
+        let value = data.hourly[parameter] ? data.hourly[parameter][index] : 'N/A';
+        return `<td>${value !== 'N/A' ? value : 'N/A'}</td>`;
+    } else {
+        return `<td>N/A</td>`;
+    }
 }
 
-function getPosition()
-{
-	// https://developer.mozilla.org/ru/docs/Web/API/Geolocation/getCurrentPosition
-	var options = {
-		enableHighAccuracy: true,
-		timeout: 5000,
-		maximumAge: 0,
-	};
-	
-	function success(pos) {
-		var crd = pos.coords;
-		
-		console.log("Ваше текущее местоположение:");
-		console.log(`Широта: ${crd.latitude}`);
-		console.log(`Долгота: ${crd.longitude}`);
-		console.log(`Плюс-минус ${crd.accuracy} метров.`);
-		
-		$('#latitude').val(crd.latitude);
-		$('#longitude').val(crd.longitude);
-		
-	}
-	
-	function error(err) {
-		console.warn(`ERROR(${err.code}): ${err.message}`);
-	}
-	
-	navigator.geolocation.getCurrentPosition(success, error, options);
+function getPosition() {
+    var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+    };
 
+    function success(pos) {
+        var crd = pos.coords;
+
+        console.log("Ваше текущее местоположение:");
+        console.log(`Широта: ${crd.latitude}`);
+        console.log(`Долгота: ${crd.longitude}`);
+        console.log(`Плюс-минус ${crd.accuracy} метров.`);
+
+        $('#latitude').val(crd.latitude);
+        $('#longitude').val(crd.longitude);
+    }
+
+    function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
 }
