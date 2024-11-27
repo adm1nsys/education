@@ -49,17 +49,17 @@
         <input type="number" id="width" placeholder="Ширина (мм)">
         <input type="number" id="height" placeholder="Висота (мм)">
         
-        <label>Одиниці виміру:</label>
-        <select id="unit">
-            <option value="mm">Міліметри</option>
-            <option value="inch">Дюйми</option>
-        </select>
-        
         <label>Кількість стовпців:</label>
         <input type="number" id="columns" placeholder="Стовпці">
         
         <label>Кількість рядків:</label>
         <input type="number" id="rows" placeholder="Рядки">
+        
+        <label>Проміжки між стовпцями (мм):</label>
+        <input type="number" id="gutterX" placeholder="Проміжки (мм)">
+        
+        <label>Проміжки між рядками (мм):</label>
+        <input type="number" id="gutterY" placeholder="Проміжки (мм)">
         
         <button id="calculate">Розрахувати</button>
     </div>
@@ -68,29 +68,42 @@
         <h2>Результати:</h2>
         <p id="module-width">Ширина модуля:</p>
         <p id="module-height">Висота модуля:</p>
-        <p id="horizontal-margin">Горизонтальний відступ:</p>
-        <p id="vertical-margin">Вертикальний відступ:</p>
+        <p id="horizontal-margin">Проміжки між стовпцями:</p>
+        <p id="vertical-margin">Проміжки між рядками:</p>
     </div>
     <script>
         document.getElementById('calculate').addEventListener('click', () => {
+            // Вхідні дані
             const width = parseFloat(document.getElementById('width').value);
             const height = parseFloat(document.getElementById('height').value);
-            const unit = document.getElementById('unit').value;
             const columns = parseInt(document.getElementById('columns').value);
             const rows = parseInt(document.getElementById('rows').value);
+            const gutterX = parseFloat(document.getElementById('gutterX').value);
+            const gutterY = parseFloat(document.getElementById('gutterY').value);
             
-            if (!width || !height || !columns || !rows) {
+            if (!width || !height || !columns || !rows || gutterX === undefined || gutterY === undefined) {
                 alert('Будь ласка, заповніть усі поля');
                 return;
             }
             
-            const gridContainer = document.getElementById('grid-container');
-            const moduleWidth = (width / columns).toFixed(2);
-            const moduleHeight = (height / rows).toFixed(2);
+            // Обчислення
+            const totalGutterX = gutterX * (columns - 1);
+            const totalGutterY = gutterY * (rows - 1);
             
-            gridContainer.style.width = unit === 'inch' ? `${(width * 25.4).toFixed(2)}px` : `${width}px`;
-            gridContainer.style.height = unit === 'inch' ? `${(height * 25.4).toFixed(2)}px` : `${height}px`;
-            gridContainer.innerHTML = '';
+            const moduleWidth = ((width - totalGutterX) / columns).toFixed(2);
+            const moduleHeight = ((height - totalGutterY) / rows).toFixed(2);
+            
+            // Виведення результатів
+            document.getElementById('module-width').innerText = `Ширина модуля: ${moduleWidth} мм`;
+            document.getElementById('module-height').innerText = `Висота модуля: ${moduleHeight} мм`;
+            document.getElementById('horizontal-margin').innerText = `Проміжки між стовпцями: ${gutterX} мм`;
+            document.getElementById('vertical-margin').innerText = `Проміжки між рядками: ${gutterY} мм`;
+            
+            // Візуалізація сітки
+            const gridContainer = document.getElementById('grid-container');
+            gridContainer.style.width = `${width}px`;
+            gridContainer.style.height = `${height}px`;
+            gridContainer.innerHTML = ''; // Очищення попередньої сітки
             
             for (let i = 0; i < rows; i++) {
                 for (let j = 0; j < columns; j++) {
@@ -98,17 +111,12 @@
                     module.style.position = 'absolute';
                     module.style.width = `${moduleWidth}px`;
                     module.style.height = `${moduleHeight}px`;
-                    module.style.left = `${j * moduleWidth}px`;
-                    module.style.top = `${i * moduleHeight}px`;
+                    module.style.left = `${j * (parseFloat(moduleWidth) + gutterX)}mm`;
+                    module.style.top = `${i * (parseFloat(moduleHeight) + gutterY)}mm`;
                     module.style.border = '1px solid #00f';
                     gridContainer.appendChild(module);
                 }
             }
-            
-            document.getElementById('module-width').innerText = `Ширина модуля: ${moduleWidth} ${unit}`;
-            document.getElementById('module-height').innerText = `Висота модуля: ${moduleHeight} ${unit}`;
-            document.getElementById('horizontal-margin').innerText = `Горизонтальний відступ: авто`;
-            document.getElementById('vertical-margin').innerText = `Вертикальний відступ: авто`;
         });
     </script>
 </body>
