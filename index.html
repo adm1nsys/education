@@ -77,6 +77,8 @@
         <h2>Результати:</h2>
         <p id="module-width">Ширина модуля:</p>
         <p id="module-height">Висота модуля:</p>
+        <p id="check-width">Перевірка ширини:</p>
+        <p id="check-height">Перевірка висоти:</p>
     </div>
     <script>
         const roundToNearest = (value, step) => {
@@ -122,9 +124,15 @@
             moduleWidth = roundToNearest(moduleWidth, 0.05);
             moduleHeight = roundToNearest(moduleHeight, 0.05);
 
+            // Проверка обратного расчёта ширины и высоты
+            const checkWidth = (moduleWidth * columns + adjustedGutterX * (columns - 1)).toFixed(2);
+            const checkHeight = (moduleHeight * rows + adjustedGutterY * (rows - 1)).toFixed(2);
+
             // Вывод результатов
             document.getElementById('module-width').innerText = `Ширина модуля: ${moduleWidth.toFixed(2)} ${unit}`;
             document.getElementById('module-height').innerText = `Висота модуля: ${moduleHeight.toFixed(2)} ${unit}`;
+            document.getElementById('check-width').innerText = `Перевірка ширини: ${checkWidth} ${unit} (очікувалося: ${width})`;
+            document.getElementById('check-height').innerText = `Перевірка висоти: ${checkHeight} ${unit} (очікувалося: ${height})`;
 
             // Рендеринг сетки
             const gridContainer = document.getElementById('grid-container');
