@@ -128,11 +128,11 @@
 
             // Рендеринг сетки
             const gridContainer = document.getElementById('grid-container');
-            gridContainer.style.width = `${adjustedWidth / conversionFactor}${unit}`;
-            gridContainer.style.height = `${adjustedHeight / conversionFactor}${unit}`;
+            gridContainer.style.width = `${width}${unit}`;
+            gridContainer.style.height = `${height}${unit}`;
             gridContainer.style.gridTemplateColumns = `repeat(${columns}, ${moduleWidth / conversionFactor}${unit})`;
             gridContainer.style.gridTemplateRows = `repeat(${rows}, ${moduleHeight / conversionFactor}${unit})`;
-            gridContainer.style.gap = `${adjustedGutterY / conversionFactor}${unit} ${adjustedGutterX / conversionFactor}${unit}`;
+            gridContainer.style.gap = `${gutterY}${unit} ${gutterX}${unit}`;
 
             gridContainer.innerHTML = ''; // Очистка предыдущей сетки
 
