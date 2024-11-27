@@ -49,10 +49,17 @@
             border-radius: 5px;
             margin-bottom: 10px;
         }
+        #output{
+            margin: auto;
+            max-width: 600px;
+        }
     </style>
 </head>
 <body>
-    <h1>Калькулятор модульної сітки</h1>
+    <header>
+        <h1>Модульна сітка</h1>
+        <p>Калькулятор для полегшення роботи з модульною сіткою</p>
+    </header>
     <div class="form-container">
         <label>Розмір робочої області:</label>
         <input type="number" id="width" placeholder="Ширина (мм або дюйми)">
@@ -87,6 +94,53 @@
         <p id="check-width">Перевірка ширини:</p>
         <p id="check-height">Перевірка висоти:</p>
     </div>
+
+    <div class="container">
+    <h2>Рекомендації</h2>
+    <div class="recommendation">
+        <p>
+            Для уникнення похибок у роботі з модульною сіткою рекомендується використовувати числа 
+            без періодичних дробів. Це спростить процес адаптації під різні формати та забезпечить 
+            точність у роботі з друком.
+        </p>
+    </div>
+
+        <div class="links">
+            <h3>Корисні ресурси</h3>
+            <ul>
+                <li>
+                    <a href="https://www.smashingmagazine.com/2011/12/golden-grid-system/" target="_blank">
+                        Golden Grid System
+                    </a>
+                </li>
+                <li>
+                    <a href="https://gridbyexample.com/" target="_blank">
+                        Grid by Example
+                    </a>
+                </li>
+                <li>
+                    <a href="https://type-scale.com/" target="_blank">
+                        Type Scale Calculator
+                    </a>
+                </li>
+                <li>
+                    <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">
+                        Complete Guide to CSS Grid
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Проєкт розроблено для спрощення роботи з модульними сітками</p>
+        <p>
+            <a href="https://github.com/adm1nsys" target="_blank">GitHub</a>
+            <a href="https://github.com/adm1nsys/grid-calculator" target="_blank">Репозиторій</a>
+            <a href="https://www.instagram.com/_george_.png" target="_blank">Instagram</a>
+        </p>
+    </footer>
+    
     <script>
         // Функция для проверки периодичности числа
         const checkPeriodic = (value) => {
