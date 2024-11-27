@@ -36,22 +36,27 @@
         }
         .grid-preview {
             margin: 20px auto;
-            border: 2px solid #666;
             background: #fff;
             position: relative;
+            display: grid;
         }
         .module {
-            background: rgba(0, 0, 255, 0.2);
-            position: absolute;
+            background-color: rgba(0, 0, 255, 0.2); /* Синий фон модулей */
         }
     </style>
 </head>
 <body>
     <h1>Калькулятор модульної сітки</h1>
     <div class="form-container">
-        <label>Розмір робочої області (мм):</label>
-        <input type="number" id="width" placeholder="Ширина (мм)">
-        <input type="number" id="height" placeholder="Висота (мм)">
+        <label>Розмір робочої області:</label>
+        <input type="number" id="width" placeholder="Ширина (мм або дюйми)">
+        <input type="number" id="height" placeholder="Висота (мм або дюйми)">
+        
+        <label>Одиниці виміру:</label>
+        <select id="unit">
+            <option value="mm">Міліметри</option>
+            <option value="inch">Дюйми</option>
+        </select>
         
         <label>Кількість стовпців:</label>
         <input type="number" id="columns" placeholder="Стовпці">
@@ -59,27 +64,30 @@
         <label>Кількість рядків:</label>
         <input type="number" id="rows" placeholder="Рядки">
         
-        <label>Проміжки між стовпцями (мм):</label>
-        <input type="number" id="gutterX" placeholder="Проміжки (мм)">
+        <label>Проміжки між стовпцями:</label>
+        <input type="number" id="gutterX" placeholder="Проміжки (мм або дюйми)">
         
-        <label>Проміжки між рядками (мм):</label>
-        <input type="number" id="gutterY" placeholder="Проміжки (мм)">
+        <label>Проміжки між рядками:</label>
+        <input type="number" id="gutterY" placeholder="Проміжки (мм або дюйми)">
         
         <button id="calculate">Розрахувати</button>
     </div>
-    <div id="grid-container" class="grid-preview" style="width: 0; height: 0;"></div>
+    <div id="grid-container" class="grid-preview"></div>
     <div id="output">
         <h2>Результати:</h2>
         <p id="module-width">Ширина модуля:</p>
         <p id="module-height">Висота модуля:</p>
-        <p id="horizontal-margin">Проміжки між стовпцями:</p>
-        <p id="vertical-margin">Проміжки між рядками:</p>
     </div>
     <script>
+        const roundToNearest = (value, step) => {
+            return Math.round(value / step) * step;
+        };
+
         document.getElementById('calculate').addEventListener('click', () => {
             // Вхідні дані
             const width = parseFloat(document.getElementById('width').value);
             const height = parseFloat(document.getElementById('height').value);
+            const unit = document.getElementById('unit').value;
             const columns = parseInt(document.getElementById('columns').value);
             const rows = parseInt(document.getElementById('rows').value);
             const gutterX = parseFloat(document.getElementById('gutterX').value);
@@ -90,47 +98,48 @@
                 return;
             }
 
-            // Допоміжна функція для округлення до 0.05
-            const roundToNearest = (value, step = 0.05) => Math.round(value / step) * step;
-            
-            // Обчислення
-            const totalGutterX = roundToNearest(gutterX * (columns - 1));
-            const totalGutterY = roundToNearest(gutterY * (rows - 1));
-            
-            const moduleWidth = roundToNearest((width - totalGutterX) / columns);
-            const moduleHeight = roundToNearest((height - totalGutterY) / rows);
-            
-            // Перевірка на точність
-            const finalWidth = roundToNearest(moduleWidth * columns + totalGutterX);
-            const finalHeight = roundToNearest(moduleHeight * rows + totalGutterY);
+            // Преобразование единиц в мм для расчётов (если выбраны дюймы)
+            const conversionFactor = unit === 'inch' ? 25.4 : 1;
+            const adjustedWidth = width * conversionFactor;
+            const adjustedHeight = height * conversionFactor;
+            const adjustedGutterX = gutterX * conversionFactor;
+            const adjustedGutterY = gutterY * conversionFactor;
 
-            if (finalWidth > width || finalHeight > height) {
-                alert('Перевірте введені дані — вони можуть перевищувати доступну область!');
+            // Проверка на превышение доступного пространства
+            const totalGutterX = adjustedGutterX * (columns - 1);
+            const totalGutterY = adjustedGutterY * (rows - 1);
+            
+            if (totalGutterX >= adjustedWidth || totalGutterY >= adjustedHeight) {
+                alert('Перевірте введені дані — проміжки перевищують доступну область!');
                 return;
             }
 
-            // Виведення результатів
-            document.getElementById('module-width').innerText = `Ширина модуля: ${moduleWidth} мм`;
-            document.getElementById('module-height').innerText = `Висота модуля: ${moduleHeight} мм`;
-            document.getElementById('horizontal-margin').innerText = `Проміжки між стовпцями: ${gutterX} мм`;
-            document.getElementById('vertical-margin').innerText = `Проміжки між рядками: ${gutterY} мм`;
-            
-            // Візуалізація сітки
+            // Расчёт размеров модуля
+            let moduleWidth = (adjustedWidth - totalGutterX) / columns;
+            let moduleHeight = (adjustedHeight - totalGutterY) / rows;
+
+            // Округление размеров до ближайших 0.05
+            moduleWidth = roundToNearest(moduleWidth, 0.05);
+            moduleHeight = roundToNearest(moduleHeight, 0.05);
+
+            // Вывод результатов
+            document.getElementById('module-width').innerText = `Ширина модуля: ${moduleWidth.toFixed(2)} ${unit}`;
+            document.getElementById('module-height').innerText = `Висота модуля: ${moduleHeight.toFixed(2)} ${unit}`;
+
+            // Рендеринг сетки
             const gridContainer = document.getElementById('grid-container');
-            gridContainer.style.width = `${width}mm`;
-            gridContainer.style.height = `${height}mm`;
-            gridContainer.innerHTML = ''; // Очищення попередньої сітки
-            
-            for (let i = 0; i < rows; i++) {
-                for (let j = 0; j < columns; j++) {
-                    const module = document.createElement('div');
-                    module.classList.add('module');
-                    module.style.width = `${moduleWidth}mm`;
-                    module.style.height = `${moduleHeight}mm`;
-                    module.style.left = `${j * (moduleWidth + gutterX)}mm`;
-                    module.style.top = `${i * (moduleHeight + gutterY)}mm`;
-                    gridContainer.appendChild(module);
-                }
+            gridContainer.style.width = `${adjustedWidth / conversionFactor}${unit}`;
+            gridContainer.style.height = `${adjustedHeight / conversionFactor}${unit}`;
+            gridContainer.style.gridTemplateColumns = `repeat(${columns}, ${moduleWidth / conversionFactor}${unit})`;
+            gridContainer.style.gridTemplateRows = `repeat(${rows}, ${moduleHeight / conversionFactor}${unit})`;
+            gridContainer.style.gap = `${adjustedGutterY / conversionFactor}${unit} ${adjustedGutterX / conversionFactor}${unit}`;
+
+            gridContainer.innerHTML = ''; // Очистка предыдущей сетки
+
+            for (let i = 0; i < rows * columns; i++) {
+                const module = document.createElement('div');
+                module.className = 'module';
+                gridContainer.appendChild(module);
             }
         });
     </script>
