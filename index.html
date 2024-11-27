@@ -3,150 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор модульної сітки</title>
+    <title>Модульна сітка</title>
     <style>
         body {
-            background-color: #2b2b2b;
-            color: white;
+            background-color: #333;
+            color: #fff;
             font-family: Arial, sans-serif;
+            padding: 20px;
             margin: 0;
-            padding: 0;
         }
         h1 {
             text-align: center;
-            margin: 20px 0;
+            margin-bottom: 20px;
         }
-        .container {
-            max-width: 800px;
+        .form-container {
+            max-width: 600px;
             margin: 0 auto;
+            background: #444;
             padding: 20px;
-            background-color: #3a3a3a;
             border-radius: 10px;
         }
-        label {
+        .form-container label {
             display: block;
             margin-bottom: 10px;
         }
-        input, select, button {
+        .form-container input, .form-container select, .form-container button {
             width: 100%;
+            margin-bottom: 15px;
             padding: 10px;
-            margin-bottom: 20px;
             border: none;
             border-radius: 5px;
         }
-        button {
-            background-color: #00bcd4;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0097a7;
-        }
-        #canvas {
-            display: block;
+        .grid-preview {
             margin: 20px auto;
-            border: 1px solid white;
-            background-color: white;
-        }
-        .output {
-            margin-top: 20px;
-            background-color: #444;
-            padding: 10px;
-            border-radius: 5px;
+            border: 2px solid #666;
+            background: #fff;
+            position: relative;
         }
     </style>
 </head>
 <body>
     <h1>Калькулятор модульної сітки</h1>
-    <div class="container">
-        <label for="unit">Одиниці вимірювання:</label>
+    <div class="form-container">
+        <label>Розмір робочої області (мм):</label>
+        <input type="number" id="width" placeholder="Ширина (мм)">
+        <input type="number" id="height" placeholder="Висота (мм)">
+        
+        <label>Одиниці виміру:</label>
         <select id="unit">
-            <option value="mm">Міліметри (мм)</option>
-            <option value="inch">Дюйми (inch)</option>
+            <option value="mm">Міліметри</option>
+            <option value="inch">Дюйми</option>
         </select>
-
-        <label for="area-width">Ширина робочої області:</label>
-        <input type="number" id="area-width" placeholder="Введіть ширину (мм або дюйм)">
-
-        <label for="area-height">Висота робочої області:</label>
-        <input type="number" id="area-height" placeholder="Введіть висоту (мм або дюйм)">
-
-        <label for="columns">Кількість стовпців:</label>
-        <input type="number" id="columns" placeholder="Введіть кількість стовпців">
-
-        <label for="rows">Кількість рядків:</label>
-        <input type="number" id="rows" placeholder="Введіть кількість рядків">
-
+        
+        <label>Кількість стовпців:</label>
+        <input type="number" id="columns" placeholder="Стовпці">
+        
+        <label>Кількість рядків:</label>
+        <input type="number" id="rows" placeholder="Рядки">
+        
         <button id="calculate">Розрахувати</button>
-
-        <canvas id="canvas" width="800" height="800"></canvas>
-
-        <div class="output" id="output"></div>
     </div>
-
+    <div id="grid-container" class="grid-preview" style="width: 0; height: 0;"></div>
+    <div id="output">
+        <h2>Результати:</h2>
+        <p id="module-width">Ширина модуля:</p>
+        <p id="module-height">Висота модуля:</p>
+        <p id="horizontal-margin">Горизонтальний відступ:</p>
+        <p id="vertical-margin">Вертикальний відступ:</p>
+    </div>
     <script>
-        const calculateButton = document.getElementById('calculate');
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-        const output = document.getElementById('output');
-
-        calculateButton.addEventListener('click', () => {
+        document.getElementById('calculate').addEventListener('click', () => {
+            const width = parseFloat(document.getElementById('width').value);
+            const height = parseFloat(document.getElementById('height').value);
             const unit = document.getElementById('unit').value;
-            const areaWidth = parseFloat(document.getElementById('area-width').value);
-            const areaHeight = parseFloat(document.getElementById('area-height').value);
-            const columns = parseInt(document.getElementById('columns').value, 10);
-            const rows = parseInt(document.getElementById('rows').value, 10);
-
-            if (!areaWidth || !areaHeight || !columns || !rows) {
-                alert('Будь ласка, заповніть всі поля!');
+            const columns = parseInt(document.getElementById('columns').value);
+            const rows = parseInt(document.getElementById('rows').value);
+            
+            if (!width || !height || !columns || !rows) {
+                alert('Будь ласка, заповніть усі поля');
                 return;
             }
-
-            // Перевод одиниц измерения в мм
-            const conversionFactor = unit === 'inch' ? 25.4 : 1;
-            const widthInMm = areaWidth * conversionFactor;
-            const heightInMm = areaHeight * conversionFactor;
-
-            // Рассчет размеров модулей и отступов
-            const moduleWidth = widthInMm / columns;
-            const moduleHeight = heightInMm / rows;
-
-            // Очистка холста
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Рендер сетки
-            renderGrid(moduleWidth, moduleHeight, columns, rows);
-
-            // Вывод результатов
-            output.innerHTML = `
-                <p><strong>Результати:</strong></p>
-                <p>Ширина модуля: ${moduleWidth.toFixed(2)} мм</p>
-                <p>Висота модуля: ${moduleHeight.toFixed(2)} мм</p>
-                <p>Розміри області: ${widthInMm.toFixed(2)} мм x ${heightInMm.toFixed(2)} мм</p>
-            `;
-        });
-
-        function renderGrid(moduleWidth, moduleHeight, columns, rows) {
-            const canvasWidth = canvas.width;
-            const canvasHeight = canvas.height;
-
-            const scaleX = canvasWidth / (moduleWidth * columns);
-            const scaleY = canvasHeight / (moduleHeight * rows);
-
-            const adjustedModuleWidth = moduleWidth * scaleX;
-            const adjustedModuleHeight = moduleHeight * scaleY;
-
-            for (let i = 0; i <= columns; i++) {
-                for (let j = 0; j <= rows; j++) {
-                    const x = i * adjustedModuleWidth;
-                    const y = j * adjustedModuleHeight;
-
-                    ctx.fillStyle = (i % 2 === 0 && j % 2 === 0) ? '#e0f7fa' : '#ffffff';
-                    ctx.fillRect(x, y, adjustedModuleWidth, adjustedModuleHeight);
+            
+            const gridContainer = document.getElementById('grid-container');
+            const moduleWidth = (width / columns).toFixed(2);
+            const moduleHeight = (height / rows).toFixed(2);
+            
+            gridContainer.style.width = unit === 'inch' ? `${(width * 25.4).toFixed(2)}px` : `${width}px`;
+            gridContainer.style.height = unit === 'inch' ? `${(height * 25.4).toFixed(2)}px` : `${height}px`;
+            gridContainer.innerHTML = '';
+            
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < columns; j++) {
+                    const module = document.createElement('div');
+                    module.style.position = 'absolute';
+                    module.style.width = `${moduleWidth}px`;
+                    module.style.height = `${moduleHeight}px`;
+                    module.style.left = `${j * moduleWidth}px`;
+                    module.style.top = `${i * moduleHeight}px`;
+                    module.style.border = '1px solid #00f';
+                    gridContainer.appendChild(module);
                 }
             }
-        }
+            
+            document.getElementById('module-width').innerText = `Ширина модуля: ${moduleWidth} ${unit}`;
+            document.getElementById('module-height').innerText = `Висота модуля: ${moduleHeight} ${unit}`;
+            document.getElementById('horizontal-margin').innerText = `Горизонтальний відступ: авто`;
+            document.getElementById('vertical-margin').innerText = `Вертикальний відступ: авто`;
+        });
     </script>
 </body>
 </html>
-
