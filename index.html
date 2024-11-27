@@ -152,10 +152,9 @@
     
     <div class="container">
          <h2>Перегляд:</h2>
+            <div id="grid-container" class="grid-preview"></div>
     </div>
     
-    <div id="grid-container" class="grid-preview"></div>
-   
     <div id="output">
         <h2>Результати:</h2>
         <div id="steps"></div>
@@ -212,18 +211,18 @@
     </footer>
     
     <script>
-        // Функция для проверки периодичности числа
+        // Функція для перевірки частоти числа
         const checkPeriodic = (value) => {
-            const rounded = value.toFixed(15); // Ограничиваем число для поиска периода
+            const rounded = value.toFixed(15); // Обмежте число для пошуку періоду
             const parts = rounded.split(".");
             if (parts[1] && parts[1].length > 10) {
-                // Проверяем повторяемость первых знаков дробной части
+                // Перевіряємо повторюваність перших ознак дробової частини
                 const match = /^(\d+?)\1+$/.exec(parts[1]);
                 if (match) {
                     return `${parts[0]}.(${match[1]})`;
                 }
             }
-            return value.toFixed(4); // Если нет периода, возвращаем округлённое
+            return value.toFixed(4); // Якщо періоду немає, ми повертаємо округлі
         };
 
         document.getElementById('calculate').addEventListener('click', () => {
@@ -241,7 +240,7 @@
                 return;
             }
 
-            // Преобразование единиц в мм для расчётов (если выбраны дюймы)
+            // Перетворення одиниць у мм для обчислень (якщо вибираються дюйми)
             const conversionFactor = unit === 'inch' ? 25.4 : 1;
             const adjustedWidth = width * conversionFactor;
             const adjustedHeight = height * conversionFactor;
@@ -249,32 +248,32 @@
             const adjustedGutterY = gutterY * conversionFactor;
 
             const stepsContainer = document.getElementById('steps');
-            stepsContainer.innerHTML = ''; // Очистка предыдущих шагов
+            stepsContainer.innerHTML = ''; // Очищення попередніх кроків
 
-            // Шаг 1: Сумма промежутков
+            // Шаг 1: Сума інтервалів
             const totalGutterX = adjustedGutterX * (columns - 1);
             const totalGutterY = adjustedGutterY * (rows - 1);
             stepsContainer.innerHTML += `<div class="output-step">Сума проміжків між стовпцями: ${totalGutterX.toFixed(2)} ${unit}</div>`;
             stepsContainer.innerHTML += `<div class="output-step">Сума проміжків між рядками: ${totalGutterY.toFixed(2)} ${unit}</div>`;
 
-            // Шаг 2: Оставшаяся область
+            // Шаг 2: Залишившаяся область
             const remainingWidth = adjustedWidth - totalGutterX;
             const remainingHeight = adjustedHeight - totalGutterY;
             stepsContainer.innerHTML += `<div class="output-step">Залишкова ширина для модулів: ${remainingWidth.toFixed(2)} ${unit}</div>`;
             stepsContainer.innerHTML += `<div class="output-step">Залишкова висота для модулів: ${remainingHeight.toFixed(2)} ${unit}</div>`;
 
-            // Шаг 3: Размеры модуля
+            // Шаг 3: Розміри модуля
             const moduleWidth = remainingWidth / columns;
             const moduleHeight = remainingHeight / rows;
 
-            // Проверка периодичности
+            // Частота перевірки
             const moduleWidthStr = checkPeriodic(moduleWidth / conversionFactor);
             const moduleHeightStr = checkPeriodic(moduleHeight / conversionFactor);
 
             stepsContainer.innerHTML += `<div class="output-step">Ширина одного модуля: ${moduleWidthStr} ${unit}</div>`;
             stepsContainer.innerHTML += `<div class="output-step">Висота одного модуля: ${moduleHeightStr} ${unit}</div>`;
 
-            // Проверка обратного расчёта
+            // Перевірка розрахунку повернення
             const checkWidth = moduleWidth * columns + totalGutterX;
             const checkHeight = moduleHeight * rows + totalGutterY;
 
@@ -283,7 +282,7 @@
             document.getElementById('check-width').innerText = `Перевірка ширини: ${checkWidth.toFixed(2)} ${unit} (очікувалося: ${width})`;
             document.getElementById('check-height').innerText = `Перевірка висоти: ${checkHeight.toFixed(2)} ${unit} (очікувалося: ${height})`;
 
-            // Рендеринг сетки
+            // Візуалізація сетки
             const gridContainer = document.getElementById('grid-container');
             gridContainer.style.width = `${width}${unit}`;
             gridContainer.style.height = `${height}${unit}`;
@@ -291,7 +290,7 @@
             gridContainer.style.gridTemplateRows = `repeat(${rows}, ${moduleHeight / conversionFactor}${unit})`;
             gridContainer.style.gap = `${gutterY}${unit} ${gutterX}${unit}`;
 
-            gridContainer.innerHTML = ''; // Очистка предыдущей сетки
+            gridContainer.innerHTML = ''; // Очищення попередньої сетки
 
             for (let i = 0; i < rows * columns; i++) {
                 const module = document.createElement('div');
@@ -302,7 +301,7 @@
     </script>
     <script>
     document.addEventListener("DOMContentLoaded", () => {
-        // Примерные данные
+        // Зразки даних
         document.getElementById("width").value = 145;
         document.getElementById("height").value = 195;
         document.getElementById("unit").value = "mm";
@@ -310,7 +309,7 @@
         document.getElementById("rows").value = 8;
         document.getElementById("gutterX").value = 5;
         document.getElementById("gutterY").value = 7;
-        // Вызов функции расчета
+        // Виклик функції розрахунку
         const calculateButton = document.getElementById("calculate");
         if (calculateButton) {
             calculateButton.click();
