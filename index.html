@@ -43,6 +43,12 @@
         .module {
             background-color: rgba(0, 0, 255, 0.2); /* Синий фон модулей */
         }
+        .output-step {
+            background: #555;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -75,14 +81,25 @@
     <div id="grid-container" class="grid-preview"></div>
     <div id="output">
         <h2>Результати:</h2>
+        <div id="steps"></div>
         <p id="module-width">Ширина модуля:</p>
         <p id="module-height">Висота модуля:</p>
         <p id="check-width">Перевірка ширини:</p>
         <p id="check-height">Перевірка висоти:</p>
     </div>
     <script>
-        const roundToNearest = (value, step) => {
-            return Math.round(value / step) * step;
+        // Функция для проверки периодичности числа
+        const checkPeriodic = (value) => {
+            const rounded = value.toFixed(15); // Ограничиваем число для поиска периода
+            const parts = rounded.split(".");
+            if (parts[1] && parts[1].length > 10) {
+                // Проверяем повторяемость первых знаков дробной части
+                const match = /^(\d+?)\1+$/.exec(parts[1]);
+                if (match) {
+                    return `${parts[0]}.(${match[1]})`;
+                }
+            }
+            return value.toFixed(4); // Если нет периода, возвращаем округлённое
         };
 
         document.getElementById('calculate').addEventListener('click', () => {
@@ -107,32 +124,40 @@
             const adjustedGutterX = gutterX * conversionFactor;
             const adjustedGutterY = gutterY * conversionFactor;
 
-            // Проверка на превышение доступного пространства
+            const stepsContainer = document.getElementById('steps');
+            stepsContainer.innerHTML = ''; // Очистка предыдущих шагов
+
+            // Шаг 1: Сумма промежутков
             const totalGutterX = adjustedGutterX * (columns - 1);
             const totalGutterY = adjustedGutterY * (rows - 1);
-            
-            if (totalGutterX >= adjustedWidth || totalGutterY >= adjustedHeight) {
-                alert('Перевірте введені дані — проміжки перевищують доступну область!');
-                return;
-            }
+            stepsContainer.innerHTML += `<div class="output-step">Сума проміжків між стовпцями: ${totalGutterX.toFixed(2)} ${unit}</div>`;
+            stepsContainer.innerHTML += `<div class="output-step">Сума проміжків між рядками: ${totalGutterY.toFixed(2)} ${unit}</div>`;
 
-            // Расчёт размеров модуля
-            let moduleWidth = (adjustedWidth - totalGutterX) / columns;
-            let moduleHeight = (adjustedHeight - totalGutterY) / rows;
+            // Шаг 2: Оставшаяся область
+            const remainingWidth = adjustedWidth - totalGutterX;
+            const remainingHeight = adjustedHeight - totalGutterY;
+            stepsContainer.innerHTML += `<div class="output-step">Залишкова ширина для модулів: ${remainingWidth.toFixed(2)} ${unit}</div>`;
+            stepsContainer.innerHTML += `<div class="output-step">Залишкова висота для модулів: ${remainingHeight.toFixed(2)} ${unit}</div>`;
 
-            // Округление размеров до ближайших 0.05
-            moduleWidth = roundToNearest(moduleWidth, 0.05);
-            moduleHeight = roundToNearest(moduleHeight, 0.05);
+            // Шаг 3: Размеры модуля
+            const moduleWidth = remainingWidth / columns;
+            const moduleHeight = remainingHeight / rows;
 
-            // Проверка обратного расчёта ширины и высоты
-            const checkWidth = (moduleWidth * columns + adjustedGutterX * (columns - 1)).toFixed(2);
-            const checkHeight = (moduleHeight * rows + adjustedGutterY * (rows - 1)).toFixed(2);
+            // Проверка периодичности
+            const moduleWidthStr = checkPeriodic(moduleWidth / conversionFactor);
+            const moduleHeightStr = checkPeriodic(moduleHeight / conversionFactor);
 
-            // Вывод результатов
-            document.getElementById('module-width').innerText = `Ширина модуля: ${moduleWidth.toFixed(2)} ${unit}`;
-            document.getElementById('module-height').innerText = `Висота модуля: ${moduleHeight.toFixed(2)} ${unit}`;
-            document.getElementById('check-width').innerText = `Перевірка ширини: ${checkWidth} ${unit} (очікувалося: ${width})`;
-            document.getElementById('check-height').innerText = `Перевірка висоти: ${checkHeight} ${unit} (очікувалося: ${height})`;
+            stepsContainer.innerHTML += `<div class="output-step">Ширина одного модуля: ${moduleWidthStr} ${unit}</div>`;
+            stepsContainer.innerHTML += `<div class="output-step">Висота одного модуля: ${moduleHeightStr} ${unit}</div>`;
+
+            // Проверка обратного расчёта
+            const checkWidth = moduleWidth * columns + totalGutterX;
+            const checkHeight = moduleHeight * rows + totalGutterY;
+
+            document.getElementById('module-width').innerText = `Ширина модуля: ${moduleWidthStr} ${unit}`;
+            document.getElementById('module-height').innerText = `Висота модуля: ${moduleHeightStr} ${unit}`;
+            document.getElementById('check-width').innerText = `Перевірка ширини: ${checkWidth.toFixed(2)} ${unit} (очікувалося: ${width})`;
+            document.getElementById('check-height').innerText = `Перевірка висоти: ${checkHeight.toFixed(2)} ${unit} (очікувалося: ${height})`;
 
             // Рендеринг сетки
             const gridContainer = document.getElementById('grid-container');
