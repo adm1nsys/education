@@ -40,6 +40,10 @@
             background: #fff;
             position: relative;
         }
+        .module {
+            background: rgba(0, 0, 255, 0.2);
+            position: absolute;
+        }
     </style>
 </head>
 <body>
@@ -85,14 +89,26 @@
                 alert('Будь ласка, заповніть усі поля');
                 return;
             }
+
+            // Допоміжна функція для округлення до 0.05
+            const roundToNearest = (value, step = 0.05) => Math.round(value / step) * step;
             
             // Обчислення
-            const totalGutterX = gutterX * (columns - 1);
-            const totalGutterY = gutterY * (rows - 1);
+            const totalGutterX = roundToNearest(gutterX * (columns - 1));
+            const totalGutterY = roundToNearest(gutterY * (rows - 1));
             
-            const moduleWidth = ((width - totalGutterX) / columns).toFixed(2);
-            const moduleHeight = ((height - totalGutterY) / rows).toFixed(2);
+            const moduleWidth = roundToNearest((width - totalGutterX) / columns);
+            const moduleHeight = roundToNearest((height - totalGutterY) / rows);
             
+            // Перевірка на точність
+            const finalWidth = roundToNearest(moduleWidth * columns + totalGutterX);
+            const finalHeight = roundToNearest(moduleHeight * rows + totalGutterY);
+
+            if (finalWidth > width || finalHeight > height) {
+                alert('Перевірте введені дані — вони можуть перевищувати доступну область!');
+                return;
+            }
+
             // Виведення результатів
             document.getElementById('module-width').innerText = `Ширина модуля: ${moduleWidth} мм`;
             document.getElementById('module-height').innerText = `Висота модуля: ${moduleHeight} мм`;
@@ -101,19 +117,18 @@
             
             // Візуалізація сітки
             const gridContainer = document.getElementById('grid-container');
-            gridContainer.style.width = `${width}px`;
-            gridContainer.style.height = `${height}px`;
+            gridContainer.style.width = `${width}mm`;
+            gridContainer.style.height = `${height}mm`;
             gridContainer.innerHTML = ''; // Очищення попередньої сітки
             
             for (let i = 0; i < rows; i++) {
                 for (let j = 0; j < columns; j++) {
                     const module = document.createElement('div');
-                    module.style.position = 'absolute';
-                    module.style.width = `${moduleWidth}px`;
-                    module.style.height = `${moduleHeight}px`;
-                    module.style.left = `${j * (parseFloat(moduleWidth) + gutterX)}mm`;
-                    module.style.top = `${i * (parseFloat(moduleHeight) + gutterY)}mm`;
-                    module.style.border = '1px solid #00f';
+                    module.classList.add('module');
+                    module.style.width = `${moduleWidth}mm`;
+                    module.style.height = `${moduleHeight}mm`;
+                    module.style.left = `${j * (moduleWidth + gutterX)}mm`;
+                    module.style.top = `${i * (moduleHeight + gutterY)}mm`;
                     gridContainer.appendChild(module);
                 }
             }
