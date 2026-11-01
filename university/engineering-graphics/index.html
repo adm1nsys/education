@@ -4,38 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Engineering Graphics · Education</title>
-<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<style>
-:root { --bg: #070707; --surface: #111113; --line: #26262b; --text: #f4f4f5; --muted: #a1a1aa; --faint: #71717a; --accent: #7c9cff; }
-@media (prefers-color-scheme: light) {
-  :root { --bg: #fafafa; --surface: #fff; --line: #e4e4e7; --text: #09090b; --muted: #52525b; --faint: #71717a; --accent: #3b5bdb; }
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; }
-.wrap { max-width: 1120px; margin: 0 auto; padding: 48px 20px 64px; }
-.back { color: var(--muted); text-decoration: none; font-size: 14px; }
-.eyebrow { font: 600 12px/1 ui-monospace, Menlo, monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 32px; }
-h1 { font-size: clamp(30px, 5vw, 44px); letter-spacing: -.02em; margin: 12px 0 8px; }
-.lead { color: var(--muted); max-width: 680px; margin: 0 0 36px; }
-h2 { font-size: 20px; margin: 40px 0 16px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
-.sheet { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-.sheet a.img { display: block; background: #fff; aspect-ratio: 4 / 3; }
-.sheet img { width: 100%; height: 100%; object-fit: contain; display: block; }
-.sheet .b { padding: 14px 16px 16px; }
-.sheet h3 { margin: 0 0 6px; font-size: 16px; }
-.sheet .files { display: flex; gap: 14px; font-size: 14px; }
-.sheet .files a { color: var(--accent); text-decoration: none; font-weight: 600; }
-.sheet .files span { color: var(--faint); }
-.cert { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 8px; }
-.cert img { width: 100%; display: block; border-radius: 6px; border: 1px solid var(--line); }
-.cert p { color: var(--muted); margin: 0 0 10px; }
-.cert a { color: var(--accent); font-weight: 600; text-decoration: none; }
-@media (max-width: 640px) { .cert { grid-template-columns: 1fr; } .cert img { max-width: 260px; } }
-</style>
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Roboto:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../assets/gallery.css">
 </head>
 <body>
-<div class="wrap">
+<div class="wrap page">
   <a class="back" href="../../">← Education</a>
   <div class="eyebrow">Kharkiv National University of Radio Electronics · works from Sep 2023 – Jun 2024</div>
   <h1>Engineering graphics</h1>
@@ -44,7 +20,7 @@ h2 { font-size: 20px; margin: 40px 0 16px; }
   <div class="cert">
     <a href="certificate-hhn-daad.pdf"><img src="../../assets/previews/certificate.jpg" alt="Certificate of participation" loading="lazy"></a>
     <div>
-      <h2 style="margin-top:0">Certificate of participation</h2>
+      <h2 style="margin:0 0 0.5rem">Certificate of participation</h2>
       <p>51-hour course “Engineering and Computer Graphics”, 01.09.2023 – 29.12.2023, within the project
       “HHN-DITO II — Digitally and Internationally Together in Difficult Times” of Heilbronn University of Applied Sciences,
       funded by the DAAD with grants from the German Federal Ministry of Education and Research (BMBF).</p>
@@ -83,7 +59,7 @@ h2 { font-size: 20px; margin: 40px 0 16px; }
     <div class="sheet"><a class="img" href="semester-2/task-4.pdf"><img src="semester-2/previews/task-4.jpg" alt="Final task 4" loading="lazy"></a>
       <div class="b"><h3>Final task 4</h3><div class="files"><a href="semester-2/task-4.pdf">PDF</a><a href="semester-2/task-4.dwg">DWG</a></div></div></div>
   </div>
-  <p style="color:var(--muted);font-size:14px">Also: <a href="semester-2/rgz-2.dwg">calculation-graphic task 2 (DWG)</a>.</p>
+  <p class="note-small">Also: <a href="semester-2/rgz-2.dwg">calculation-graphic task 2 (DWG)</a>.</p>
 
   <h2>Autumn 2023 · home assignments</h2>
   <div class="grid">
@@ -114,7 +90,7 @@ h2 { font-size: 20px; margin: 40px 0 16px; }
   <div class="grid">
     <div class="sheet"><a class="img" href="extra/lab-2-3.pdf"><img src="../../assets/previews/eg-lab-2-3.jpg" alt="Lab 2-3" loading="lazy"></a>
       <div class="b"><h3>Lab 2-3</h3><div class="files"><a href="extra/lab-2-3.pdf">PDF</a><a href="extra/lab-2-3.dwg">DWG</a><span>Oct 2023</span></div></div></div>
-    <div class="sheet"><div class="b"><h3>Lab 1 and two additional assignments</h3><div class="files"><a href="extra/lab-1.dwg">Lab 1</a><a href="extra/additional-1.dwg">Extra 1</a><a href="extra/additional-2.dwg">Extra 2</a></div><p style="color:var(--muted);font-size:14px;margin:8px 0 0">DWG only — open in AutoCAD or any DWG viewer.</p></div></div>
+    <div class="sheet"><div class="b"><h3>Lab 1 and two additional assignments</h3><div class="files"><a href="extra/lab-1.dwg">Lab 1</a><a href="extra/additional-1.dwg">Extra 1</a><a href="extra/additional-2.dwg">Extra 2</a></div><p class="note-small" style="margin:8px 0 0">DWG only — open in AutoCAD or any DWG viewer.</p></div></div>
   </div>
 </div>
 </body>

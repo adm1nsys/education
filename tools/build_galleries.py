@@ -69,11 +69,14 @@ PAGE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title} · Education</title>
-<link rel="icon" href="{up}assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{up}assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Roboto:wght@400;500&display=swap">
 <link rel="stylesheet" href="{up}assets/gallery.css">
 </head>
 <body>
-<div class="wrap">
+<div class="wrap page">
   <a class="back" href="{up}">← Education</a>
   <div class="eyebrow">{eyebrow}</div>
   <h1>{title}</h1>
