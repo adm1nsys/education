@@ -145,7 +145,7 @@ padding: 10px
 }
 
 .content{
-  background: url('/inc/mouse/bg_d.jpg');
+  background: url('bg_d.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;

@@ -168,7 +168,7 @@ max-height: 95vh; */
 }
 
 .content{
-  background: url('/inc/mouse/bg_d.jpg');
+  background: url('bg_d.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;

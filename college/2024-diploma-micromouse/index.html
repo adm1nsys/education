@@ -6,15 +6,15 @@
 
 <link rel="stylesheet" type="text/css" href="btns.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/inc/mouse/draw/style.css">
-<link rel="stylesheet" type="text/css" href="/inc/mouse/style.css">
-<!-- <link rel="stylesheet" type="text/css" href="/inc/mouse/draw/btns_draw.css"> -->
-<script src="/inc/mouse/data/const.js"></script>
-<script src="/inc/mouse/script.js"></script>
-<!-- <script src="/inc/mouse/data/l_t/1.js"></script>
-<script src="/inc/mouse/data/r_t/1.js"></script>
-<script src="/inc/mouse/data/r_b/1.js"></script>
-<script src="/inc/mouse/data/l_b/1.js"></script> -->
+<link rel="stylesheet" type="text/css" href="draw/style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<!-- <link rel="stylesheet" type="text/css" href="draw/btns_draw.css"> -->
+<script src="data/const.js"></script>
+<script src="script.js"></script>
+<!-- <script src="data/l_t/1.js"></script>
+<script src="data/r_t/1.js"></script>
+<script src="data/r_b/1.js"></script>
+<script src="data/l_b/1.js"></script> -->
 
 <script>
 let mouse_id = "id_мищі";
@@ -75,9 +75,9 @@ loadFilesSequentially(filesToLoad, 0, function() {});
 </div>
 <div class="h1">
   <div class="regular_btn" style="text-decoration:none;"><div class="regular_btn1"><b class="regular_btn2">Генератор</b></div></div>
-  <a class="regular_btn" style="text-decoration:none;" href="/inc/mouse/draw.html"><div class="regular_btn1"><b class="regular_btn2">Малювати</b></div></a>
-  <!-- <a class="regular_btn" style="text-decoration:none;" href="/inc/mouse/downloads.html"><div class="regular_btn1"><b class="regular_btn2">Завантаження</b></div></a> -->
-  <a class="regular_btn marg_10" style="text-decoration:none;" href="/inc/mouse/info.html"><div class="regular_btn1"><b class="regular_btn2">Інформація</b></div></a>
+  <a class="regular_btn" style="text-decoration:none;" href="draw.html"><div class="regular_btn1"><b class="regular_btn2">Малювати</b></div></a>
+  <!-- <a class="regular_btn" style="text-decoration:none;" href="downloads.html"><div class="regular_btn1"><b class="regular_btn2">Завантаження</b></div></a> -->
+  <a class="regular_btn marg_10" style="text-decoration:none;" href="info.html"><div class="regular_btn1"><b class="regular_btn2">Інформація</b></div></a>
 
 </div>
 </header>
@@ -1000,7 +1000,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   // Основная функция для рандомизации слоёв
   async function randomizeLayer() {
     const nums = [generateRandomNumbers(1, 7), generateRandomNumbers(1, 7), generateRandomNumbers(1, 7), generateRandomNumbers(1, 7)];
-    const paths = ['/inc/mouse/data/l_t/', '/inc/mouse/data/r_t/', '/inc/mouse/data/l_b/', '/inc/mouse/data/r_b/'];
+    const paths = ['data/l_t/', 'data/r_t/', 'data/l_b/', 'data/r_b/'];
     const promises = nums.map((num, index) => loadScript(`${paths[index]}${num}.js`));
 
     try {

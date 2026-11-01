@@ -5,16 +5,16 @@
 <title>Генератор Лабіринту</title>
 
 <link rel="stylesheet" type="text/css" href="btns_draw.css">
-<link rel="stylesheet" type="text/css" href="/inc/mouse/draw/style.css">
+<link rel="stylesheet" type="text/css" href="draw/style.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- <script src="/inc/mouse/data/l_t/0_draw.js"></script> -->
-<!-- <script src="/inc/mouse/data/r_t/0_draw.js"></script> -->
-<!-- <script src="/inc/mouse/data/l_b/0_draw.js"></script> -->
-<!-- <script src="/inc/mouse/data/r_b/0_draw.js"></script> -->
-<!-- <script src="/inc/mouse/data/const.js"></script> -->
+<!-- <script src="data/l_t/0_draw.js"></script> -->
+<!-- <script src="data/r_t/0_draw.js"></script> -->
+<!-- <script src="data/l_b/0_draw.js"></script> -->
+<!-- <script src="data/r_b/0_draw.js"></script> -->
+<!-- <script src="data/const.js"></script> -->
 <script src=""></script>
 
-<!-- <script src="/inc/mouse/data/script.js"></script> -->
+<!-- <script src="data/script.js"></script> -->
 
 <script>
 let color1, color2, color3, color4;
@@ -73,10 +73,10 @@ loadFilesSequentially(filesToLoad, 0, function() {});
 
 </div>
 <div class="h1">
-  <a class="regular_btn marg_10" style="text-decoration:none;" href="/inc/mouse/index.html"><div class="regular_btn1"><b class="regular_btn2">Генератор</b></div></a>
+  <a class="regular_btn marg_10" style="text-decoration:none;" href="index.html"><div class="regular_btn1"><b class="regular_btn2">Генератор</b></div></a>
   <div class="regular_btn marg_10" style="text-decoration:none;"><div class="regular_btn1"><b class="regular_btn2">Малювати</b></div></div>
-  <!-- <a class="regular_btn marg_10" style="text-decoration:none;" href="/inc/mouse/downloads.html"><div class="regular_btn1"><b class="regular_btn2">Завантаження</b></div></a> -->
-  <a class="regular_btn marg_10" style="text-decoration:none;" href="/inc/mouse/info.html"><div class="regular_btn1"><b class="regular_btn2">Інформація</b></div></a>
+  <!-- <a class="regular_btn marg_10" style="text-decoration:none;" href="downloads.html"><div class="regular_btn1"><b class="regular_btn2">Завантаження</b></div></a> -->
+  <a class="regular_btn marg_10" style="text-decoration:none;" href="info.html"><div class="regular_btn1"><b class="regular_btn2">Інформація</b></div></a>
 
 </div>
 </header>
@@ -937,10 +937,10 @@ document.getElementById('alpha4').value = 255;
       }
   });
   const filesToLoad = [
-      { path: `/inc/mouse/data/l_t/0_draw_clear.js`, type: 'js' },
-      { path: `/inc/mouse/data/r_t/0_draw_clear.js`, type: 'js' },
-      { path: `/inc/mouse/data/l_b/0_draw_clear.js`, type: 'js' },
-      { path: `/inc/mouse/data/r_b/0_draw_clear.js`, type: 'js' }
+      { path: `data/l_t/0_draw_clear.js`, type: 'js' },
+      { path: `data/r_t/0_draw_clear.js`, type: 'js' },
+      { path: `data/l_b/0_draw_clear.js`, type: 'js' },
+      { path: `data/r_b/0_draw_clear.js`, type: 'js' }
   ];
 
   loadFilesSequentially(filesToLoad, 0, function() {
