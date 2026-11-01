@@ -60,6 +60,7 @@ section.block { padding: 72px 0 8px; }
 .block-head { display: grid; grid-template-columns: 1fr; gap: 6px; margin-bottom: 28px; }
 .block-head h2 { font-size: 30px; letter-spacing: -.02em; margin: 0; }
 .block-head p { margin: 0; color: var(--muted); max-width: 720px; }
+.group { font-size: 15px; font-weight: 700; color: var(--muted); letter-spacing: .02em; margin: 40px 0 16px; text-transform: uppercase; }
 .block-head .meta { color: var(--faint); font-size: 14px; }
 
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
@@ -102,12 +103,12 @@ footer a { color: var(--muted); }
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Heorhii Romanenko · 2023 – 2024</div>
+    <div class="eyebrow">Heorhii Romanenko · 2023 – 2025</div>
     <h1>Student works</h1>
-    <p class="lead">Everything I built while studying in Kharkiv: first HTML labs, an Android coursework, a diploma project, AutoCAD drawings and a few design pieces. Kept as they were made — collected, fixed and documented in one place.</p>
+    <p class="lead">Everything I built while studying in Kharkiv: first HTML labs, an Android coursework, a diploma project, a printed magazine, AutoCAD drawings, color and type labs. Kept as they were made — collected, fixed and documented in one place.</p>
     <div class="stats">
       <div class="stat"><b>2</b><span>institutions</span></div>
-      <div class="stat"><b>11</b><span>works</span></div>
+      <div class="stat"><b>23</b><span>works</span></div>
       <div class="stat"><b>9</b><span>old repos merged with history</span></div>
     </div>
     <div class="jump">
@@ -150,11 +151,12 @@ footer a { color: var(--muted); }
         <div class="body">
           <span class="date">COURSEWORK · NOV – DEC 2023</span>
           <h3>NumeraLogic</h3>
-          <p>Android calculator app plus its download site. 58 iterations before submission; the video shows the install flow on a real phone.</p>
+          <p>Android calculator built in MIT App Inventor, plus its download site. Dozens of builds before submission; the video shows the install flow on a real phone.</p>
           <div class="tags"><span class="tag">Android</span><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span></div>
           <div class="links">
             <a href="college/2023-numeralogic/media/demo.mp4">Watch demo</a>
             <a href="college/2023-numeralogic/">Landing page</a>
+            <a href="college/2023-numeralogic/app-inventor/NumeraLogic.aia">App Inventor source</a>
             <a href="https://github.com/adm1nsys/student-works/tree/main/college/2023-numeralogic">Source</a>
           </div>
         </div>
@@ -172,6 +174,17 @@ footer a { color: var(--muted); }
             <a href="college/web-programming/15.html">15-puzzle</a>
             <a href="https://github.com/adm1nsys/student-works/tree/main/college/web-programming">Source</a>
           </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="college/2023-networking/"><img src="assets/previews/networking.jpg" alt="Cisco Packet Tracer lab" loading="lazy"></a>
+        <div class="body">
+          <span class="date">NETWORKING · OCT 2023</span>
+          <h3>Cisco Packet Tracer lab</h3>
+          <p>A network topology with routers and switches built in Packet Tracer.</p>
+          <div class="tags"><span class="tag">Cisco Packet Tracer</span><span class="tag">Networking</span></div>
+          <div class="links"><a href="college/2023-networking/">Open</a><a href="https://github.com/adm1nsys/student-works/tree/main/college/2023-networking">Source</a></div>
         </div>
       </article>
 
@@ -249,38 +262,57 @@ footer a { color: var(--muted); }
 
   <section class="block" id="university">
     <div class="block-head">
-      <div class="eyebrow">University · 2023 – 2024</div>
+      <div class="eyebrow">University · 2023 – 2025</div>
       <h2>Kharkiv National University of Radio Electronics</h2>
-      <p>Group VPVPS-23-2. Engineering graphics, design and layout.</p>
+      <p>Publishing and printing, group VPVPS-23-2. Layout, print production, color, type and engineering graphics.</p>
     </div>
-
+    <h3 class="group">Spring 2025</h3>
     <div class="grid">
       <article class="card">
-        <a class="shot contain" href="university/engineering-graphics/"><img src="assets/previews/eg-lab-2.jpg" alt="AutoCAD drawing: projections of a plane" loading="lazy"></a>
+        <a class="shot contain" href="university/technical-mechanics/"><img src="assets/previews/technical-mechanics.jpg" alt="Technical mechanics" loading="lazy"></a>
         <div class="body">
-          <span class="date">ENGINEERING GRAPHICS · OCT – DEC 2023</span>
-          <h3>AutoCAD drawings</h3>
-          <p>Home assignments, labs and the exam drawing for engineering and computer graphics. Each sheet is available as PDF and as the original DWG.</p>
+          <span class="date">TECHNICAL MECHANICS · APR 2025</span>
+          <h3>Technical mechanics</h3>
+          <p>A mechanical drawing in AutoCAD with a full explanatory note.</p>
           <div class="tags"><span class="tag">AutoCAD</span><span class="tag">DWG</span></div>
-          <div class="links">
-            <a href="university/engineering-graphics/">All drawings</a>
-            <a href="https://github.com/adm1nsys/student-works/tree/main/university/engineering-graphics">Source</a>
-          </div>
+          <div class="links"><a href="university/technical-mechanics/">Open</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/technical-mechanics">Source</a></div>
         </div>
       </article>
 
       <article class="card">
-        <a class="shot" href="university/sticker-pack/Pack/Artboard%201.pdf"><img src="assets/previews/sticker-pack.jpg" alt="Sticker pack artboard" loading="lazy"></a>
+        <a class="shot" href="university/color-science/"><img src="assets/previews/color-science.jpg" alt="Color science labs" loading="lazy"></a>
         <div class="body">
-          <span class="date">DESIGN · MAR 2024</span>
-          <h3>Sticker pack</h3>
-          <p>A series of stickers drawn in Illustrator, exported for messengers, with its own download page and a QR code on the poster.</p>
-          <div class="tags"><span class="tag">Illustrator</span><span class="tag">Figma</span><span class="tag">HTML</span></div>
-          <div class="links">
-            <a href="university/sticker-pack/Pack/Artboard%201.pdf">Poster</a>
-            <a href="university/sticker-pack/">Download page</a>
-            <a href="https://github.com/adm1nsys/student-works/tree/main/university/sticker-pack">Source</a>
-          </div>
+          <span class="date">COLOR SCIENCE · MAR – MAY 2025</span>
+          <h3>Color science labs</h3>
+          <p>Hermann grid illusion prepared for RGB and CMYK, a color wheel and swatch studies.</p>
+          <div class="tags"><span class="tag">Illustrator</span><span class="tag">RGB/CMYK</span></div>
+          <div class="links"><a href="university/color-science/">Open</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/color-science">Source</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="university/raster-imaging/"><img src="assets/previews/raster-imaging.jpg" alt="Raster imaging labs" loading="lazy"></a>
+        <div class="body">
+          <span class="date">RASTER IMAGING · MAR 2025</span>
+          <h3>Raster imaging labs</h3>
+          <p>Scanned halftone and screen-ruling measurements.</p>
+          <div class="tags"><span class="tag">Scanning</span><span class="tag">Halftone</span></div>
+          <div class="links"><a href="university/raster-imaging/">Open</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/raster-imaging">Source</a></div>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="group">Autumn 2024</h3>
+    <div class="grid">
+      <article class="card featured">
+        <a class="shot" href="university/magazine-smart-home-living/"><img src="assets/previews/magazine.jpg" alt="Smart Home Living" loading="lazy"></a>
+        <div class="body">
+          <span class="badge">Coursework · Dec 2024</span>
+          <h3>Smart Home Living</h3>
+          <div class="orig">«Художнє оформлення поліграфічних видань»</div>
+          <p>A 21-page magazine about smart lighting: hand sketches, four layout concepts, final layout on a modular grid — the grid was calculated with my own tool below.</p>
+          <div class="tags"><span class="tag">Illustrator</span><span class="tag">Figma</span><span class="tag">Layout</span><span class="tag">Print</span></div>
+          <div class="links"><a href="university/magazine-smart-home-living/">Look inside</a><a href="university/magazine-smart-home-living/smart-home-living.pdf">PDF</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/magazine-smart-home-living">Source</a></div>
         </div>
       </article>
 
@@ -289,12 +321,114 @@ footer a { color: var(--muted); }
         <div class="body">
           <span class="date">TOOL · NOV 2024</span>
           <h3>Modular grid calculator</h3>
-          <p>Built for myself while laying out a magazine: enter the page size, columns, rows and gutters — get the module size.</p>
+          <p>Built for the magazine above: enter page size, columns, rows and gutters — get the module size.</p>
           <div class="tags"><span class="tag">JavaScript</span><span class="tag">Layout</span></div>
-          <div class="links">
-            <a href="university/grid-calculator/">Open</a>
-            <a href="https://github.com/adm1nsys/student-works/tree/main/university/grid-calculator">Source</a>
-          </div>
+          <div class="links"><a href="university/grid-calculator/">Open</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/grid-calculator">Source</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot contain" href="university/print-finishing/"><img src="assets/previews/print-finishing.jpg" alt="Spot colors & embossing" loading="lazy"></a>
+        <div class="body">
+          <span class="date">PRINT FINISHING · DEC 2024</span>
+          <h3>Spot colors & embossing</h3>
+          <p>Artwork prepared for three spot colors and embossing, and an art prize poster.</p>
+          <div class="tags"><span class="tag">Illustrator</span><span class="tag">Prepress</span></div>
+          <div class="links"><a href="university/print-finishing/">Open</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/print-finishing">Source</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot contain" href="university/posters/"><img src="assets/previews/posters.jpg" alt="Posters & infographics" loading="lazy"></a>
+        <div class="body">
+          <span class="date">GRAPHIC DESIGN · DEC 2024</span>
+          <h3>Posters & infographics</h3>
+          <p>Kharkiv metro maps as infographic posters, and a poster about Kyiv.</p>
+          <div class="tags"><span class="tag">Illustrator</span><span class="tag">Infographics</span></div>
+          <div class="links"><a href="university/posters/">Open</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/posters">Source</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="university/web-design-figma/"><img src="assets/previews/web-design-figma.jpg" alt="Web design in Figma" loading="lazy"></a>
+        <div class="body">
+          <span class="date">WEB DESIGN · OCT – DEC 2024</span>
+          <h3>Web design in Figma</h3>
+          <p>First page of a multi-page site, 400 / 404 error pages and a poster.</p>
+          <div class="tags"><span class="tag">Figma</span><span class="tag">UI</span></div>
+          <div class="links"><a href="university/web-design-figma/">Open</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/web-design-figma">Source</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot contain" href="university/logo-mst/"><img src="assets/previews/logo-mst.jpg" alt="Department logo" loading="lazy"></a>
+        <div class="body">
+          <span class="date">IDENTITY · NOV 2024</span>
+          <h3>Department logo</h3>
+          <p>Logo for the Media Systems and Technologies department.</p>
+          <div class="tags"><span class="tag">Illustrator</span><span class="tag">Identity</span></div>
+          <div class="links"><a href="university/logo-mst/">Open</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/logo-mst">Source</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="university/type-design/"><img src="assets/previews/type-design.jpg" alt="Modified Courier New" loading="lazy"></a>
+        <div class="body">
+          <span class="date">TYPE DESIGN · SEP 2024</span>
+          <h3>Modified Courier New</h3>
+          <p>First type-design lab in FontLab: editing glyphs of an existing typeface.</p>
+          <div class="tags"><span class="tag">FontLab</span><span class="tag">TTF</span></div>
+          <div class="links"><a href="university/type-design/specimen.html">Specimen</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/type-design">Source</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="university/advertising/"><img src="assets/previews/advertising.jpg" alt="Social media ads" loading="lazy"></a>
+        <div class="body">
+          <span class="date">ADVERTISING · SEP 2024</span>
+          <h3>Social media ads</h3>
+          <p>Posts and stories for Instagram and Facebook.</p>
+          <div class="tags"><span class="tag">Figma</span><span class="tag">Social</span></div>
+          <div class="links"><a href="university/advertising/">Open</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/advertising">Source</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot contain" href="university/patterns/"><img src="assets/previews/patterns.jpg" alt="Patterns" loading="lazy"></a>
+        <div class="body">
+          <span class="date">DESIGN · SEP 2024</span>
+          <h3>Patterns</h3>
+          <p>Three ornament studies.</p>
+          <div class="tags"><span class="tag">Illustrator</span></div>
+          <div class="links"><a href="university/patterns/">Open</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/patterns">Source</a></div>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="group">Spring 2024</h3>
+    <div class="grid">
+      <article class="card">
+        <a class="shot" href="university/sticker-pack/"><img src="assets/previews/sticker-pack.jpg" alt="Sticker pack" loading="lazy"></a>
+        <div class="body">
+          <span class="date">DESIGN · MAR 2024</span>
+          <h3>Sticker pack</h3>
+          <p>A sticker series drawn in Illustrator, with a poster, QR code and download page.</p>
+          <div class="tags"><span class="tag">Illustrator</span><span class="tag">Figma</span><span class="tag">HTML</span></div>
+          <div class="links"><a href="university/sticker-pack/Pack/Artboard%201.pdf">Poster</a><a href="university/sticker-pack/">Download page</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/sticker-pack">Source</a></div>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="group">Autumn 2023</h3>
+    <div class="grid">
+      <article class="card">
+        <a class="shot contain" href="university/engineering-graphics/"><img src="assets/previews/eg-lab-2.jpg" alt="AutoCAD drawings" loading="lazy"></a>
+        <div class="body">
+          <span class="date">ENGINEERING GRAPHICS · OCT – DEC 2023</span>
+          <h3>AutoCAD drawings</h3>
+          <p>Home assignments, labs and the exam for engineering graphics — every sheet as PDF and original DWG.</p>
+          <div class="tags"><span class="tag">AutoCAD</span><span class="tag">DWG</span></div>
+          <div class="links"><a href="university/engineering-graphics/">All drawings</a><a href="https://github.com/adm1nsys/student-works/tree/main/university/engineering-graphics">Source</a></div>
         </div>
       </article>
     </div>
