@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Engineering Graphics · Student Works</title>
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<style>
+:root { --bg: #070707; --surface: #111113; --line: #26262b; --text: #f4f4f5; --muted: #a1a1aa; --faint: #71717a; --accent: #7c9cff; }
+@media (prefers-color-scheme: light) {
+  :root { --bg: #fafafa; --surface: #fff; --line: #e4e4e7; --text: #09090b; --muted: #52525b; --faint: #71717a; --accent: #3b5bdb; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 48px 20px 64px; }
+.back { color: var(--muted); text-decoration: none; font-size: 14px; }
+.eyebrow { font: 600 12px/1 ui-monospace, Menlo, monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 32px; }
+h1 { font-size: clamp(30px, 5vw, 44px); letter-spacing: -.02em; margin: 12px 0 8px; }
+.lead { color: var(--muted); max-width: 680px; margin: 0 0 36px; }
+h2 { font-size: 20px; margin: 40px 0 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+.sheet { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.sheet a.img { display: block; background: #fff; aspect-ratio: 4 / 3; }
+.sheet img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.sheet .b { padding: 14px 16px 16px; }
+.sheet h3 { margin: 0 0 6px; font-size: 16px; }
+.sheet .files { display: flex; gap: 14px; font-size: 14px; }
+.sheet .files a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.sheet .files span { color: var(--faint); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../../">← Student works</a>
+  <div class="eyebrow">Kharkiv National University of Radio Electronics · Oct – Dec 2023</div>
+  <h1>Engineering graphics</h1>
+  <p class="lead">Drawings made in AutoCAD for the engineering and computer graphics course, group VPVPS-23-2. Every sheet comes as a PDF for viewing and the original DWG.</p>
+
+  <h2>Home assignments</h2>
+  <div class="grid">
+    <div class="sheet"><a class="img" href="dkr/dkr-1.pdf"><img src="../../assets/previews/eg-dkr-1.jpg" alt="Home assignment 1" loading="lazy"></a>
+      <div class="b"><h3>Assignment 1 · projections of a plane</h3><div class="files"><a href="dkr/dkr-1.pdf">PDF</a><a href="dkr/dkr-1.dwg">DWG</a><span>14.10.2023</span></div></div></div>
+    <div class="sheet"><a class="img" href="dkr/dkr-2.pdf"><img src="../../assets/previews/eg-dkr-2.jpg" alt="Home assignment 2" loading="lazy"></a>
+      <div class="b"><h3>Assignment 2</h3><div class="files"><a href="dkr/dkr-2.pdf">PDF</a><a href="dkr/dkr-2.dwg">DWG</a><span>15.10.2023</span></div></div></div>
+  </div>
+
+  <h2>Labs</h2>
+  <div class="grid">
+    <div class="sheet"><a class="img" href="labs/lab-2.pdf"><img src="../../assets/previews/eg-lab-2.jpg" alt="Lab 2" loading="lazy"></a>
+      <div class="b"><h3>Lab 2 · part with mating arcs</h3><div class="files"><a href="labs/lab-2.pdf">PDF</a><a href="labs/lab-2.dwg">DWG</a><a href="labs/lab-2-1-1.dwg">DWG 2-1.1</a><a href="labs/lab-2-1-2.dwg">DWG 2-1.2</a></div></div></div>
+    <div class="sheet"><a class="img" href="labs/lab-2-2.pdf"><img src="../../assets/previews/eg-lab-2-2.jpg" alt="Lab 2-2" loading="lazy"></a>
+      <div class="b"><h3>Lab 2-2</h3><div class="files"><a href="labs/lab-2-2.pdf">PDF</a><a href="labs/lab-2-2.dwg">DWG</a><span>23.10.2023</span></div></div></div>
+    <div class="sheet"><a class="img" href="labs/lab-3.pdf"><img src="../../assets/previews/eg-lab-3.jpg" alt="Lab 3" loading="lazy"></a>
+      <div class="b"><h3>Lab 3</h3><div class="files"><a href="labs/lab-3.pdf">PDF</a><a href="labs/lab-3.dwg">DWG</a><span>25.10.2023</span></div></div></div>
+  </div>
+
+  <h2>Exam · ticket 19</h2>
+  <div class="grid">
+    <div class="sheet"><a class="img" href="exam/ticket-19-task.pdf"><img src="../../assets/previews/eg-exam-task.jpg" alt="Exam ticket 19 task" loading="lazy"></a>
+      <div class="b"><h3>Task</h3><div class="files"><a href="exam/ticket-19-task.pdf">PDF</a><span>25.12.2023</span></div></div></div>
+    <div class="sheet"><a class="img" href="exam/ticket-19-answer.pdf"><img src="../../assets/previews/eg-exam-answer.jpg" alt="Exam answer" loading="lazy"></a>
+      <div class="b"><h3>My answer</h3><div class="files"><a href="exam/ticket-19-answer.pdf">PDF</a><span>27.12.2023</span></div></div></div>
+  </div>
+</div>
+</body>
+</html>

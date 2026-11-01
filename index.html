@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Works · Heorhii Romanenko</title>
+<meta name="description" content="College and university works of Heorhii Romanenko, 2023–2024: web labs, coursework, diploma project, engineering graphics.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<style>
+:root {
+  --bg: #070707; --surface: #111113; --surface-2: #18181b; --line: #26262b;
+  --text: #f4f4f5; --muted: #a1a1aa; --faint: #71717a;
+  --accent: #7c9cff; --accent-2: #c084fc; --chip: #1f1f24;
+  --shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 20px 40px -24px rgba(0,0,0,.8);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #fafafa; --surface: #ffffff; --surface-2: #f4f4f5; --line: #e4e4e7;
+    --text: #09090b; --muted: #52525b; --faint: #71717a;
+    --accent: #3b5bdb; --accent-2: #9333ea; --chip: #f4f4f5;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 16px 32px -24px rgba(0,0,0,.25);
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Inter, Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+/* hero */
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.hero::before {
+  content: ""; position: absolute; inset: -40% -10% auto -10%; height: 140%;
+  background:
+    radial-gradient(40% 50% at 20% 30%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 70%),
+    radial-gradient(35% 45% at 80% 20%, color-mix(in srgb, var(--accent-2) 22%, transparent), transparent 70%);
+  pointer-events: none;
+}
+.hero .wrap { position: relative; padding-top: 88px; padding-bottom: 64px; }
+.eyebrow { font: 600 12px/1 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.05; letter-spacing: -.03em; margin: 14px 0 18px; }
+.lead { max-width: 640px; color: var(--muted); font-size: 18px; margin: 0; }
+.stats { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 36px; }
+.stat b { display: block; font-size: 28px; letter-spacing: -.02em; }
+.stat span { color: var(--faint); font-size: 13px; }
+.jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface); text-decoration: none; font-weight: 600; font-size: 14px;
+}
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+/* sections */
+section.block { padding: 72px 0 8px; }
+.block-head { display: grid; grid-template-columns: 1fr; gap: 6px; margin-bottom: 28px; }
+.block-head h2 { font-size: 30px; letter-spacing: -.02em; margin: 0; }
+.block-head p { margin: 0; color: var(--muted); max-width: 720px; }
+.block-head .meta { color: var(--faint); font-size: 14px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.card {
+  display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); transition: transform .2s, border-color .2s;
+}
+.card:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+.card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.25fr 1fr; }
+.shot { aspect-ratio: 16 / 10; background: var(--surface-2); border-bottom: 1px solid var(--line); overflow: hidden; display: block; }
+.featured .shot { aspect-ratio: auto; min-height: 320px; border-bottom: 0; border-right: 1px solid var(--line); }
+.shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.shot.contain img { object-fit: contain; padding: 12px; background: #fff; }
+.shot.phone img { object-fit: contain; background: #000; }
+.body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.date { font: 600 12px/1 ui-monospace, "SF Mono", Menlo, monospace; color: var(--faint); letter-spacing: .06em; }
+.card h3 { margin: 0; font-size: 19px; letter-spacing: -.01em; }
+.orig { color: var(--faint); font-size: 13px; margin-top: -6px; }
+.card p { margin: 0; color: var(--muted); font-size: 15px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+.tag { font: 500 12px/1 ui-monospace, "SF Mono", Menlo, monospace; padding: 6px 8px; border-radius: 6px; background: var(--chip); color: var(--muted); }
+.badge { align-self: flex-start; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); }
+.links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: auto; padding-top: 8px; }
+.links a { font-size: 14px; font-weight: 600; text-decoration: none; color: var(--accent); }
+.links a:hover { text-decoration: underline; }
+
+.note { margin: 64px 0 0; padding: 20px 22px; border: 1px dashed var(--line); border-radius: 14px; color: var(--muted); font-size: 15px; }
+footer { padding: 48px 0 64px; color: var(--faint); font-size: 14px; }
+footer a { color: var(--muted); }
+
+@media (max-width: 760px) {
+  .card.featured { grid-template-columns: 1fr; }
+  .featured .shot { min-height: 0; aspect-ratio: 16 / 10; border-right: 0; border-bottom: 1px solid var(--line); }
+  .grid { grid-template-columns: 1fr; }
+  .hero .wrap { padding-top: 56px; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Heorhii Romanenko · 2023 – 2024</div>
+    <h1>Student works</h1>
+    <p class="lead">Everything I built while studying in Kharkiv: first HTML labs, an Android coursework, a diploma project, AutoCAD drawings and a few design pieces. Kept as they were made — collected, fixed and documented in one place.</p>
+    <div class="stats">
+      <div class="stat"><b>2</b><span>institutions</span></div>
+      <div class="stat"><b>11</b><span>works</span></div>
+      <div class="stat"><b>9</b><span>old repos merged with history</span></div>
+    </div>
+    <div class="jump">
+      <a class="btn primary" href="#diploma">Diploma project →</a>
+      <a class="btn" href="#college">College</a>
+      <a class="btn" href="#university">University</a>
+      <a class="btn" href="https://github.com/adm1nsys/student-works">Source on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="block" id="college">
+    <div class="block-head">
+      <div class="eyebrow">College · 2022 – 2024</div>
+      <h2>Kharkiv Professional College of Information Technologies</h2>
+      <p>Separate structural unit of the National Aerospace University “Kharkiv Aviation Institute”. Specialty 172 Telecommunications and Radio Engineering, programme “Mobile Communication Systems and Networks”. Groups MZ-21 → MZ-31.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card featured" id="diploma">
+        <a class="shot" href="college/2024-diploma-micromouse/"><img src="assets/previews/diploma.jpg" alt="Micromouse maze generator: generated 16×16 maze" loading="lazy"></a>
+        <div class="body">
+          <span class="badge">Diploma project · June 2024</span>
+          <h3>Micromouse maze editor</h3>
+          <div class="orig">«Сторінка для створення лабіринтів»</div>
+          <p>A web page for building mazes for Micromouse robot competitions. The 16×16 field is split into 16 sectors; the generator picks a prepared 4×4 block for each one and assembles a full maze. Mazes can be drawn by hand, exported to JSON and imported back.</p>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">jQuery</span><span class="tag">JSON</span><span class="tag">HTML/CSS</span></div>
+          <div class="links">
+            <a href="college/2024-diploma-micromouse/">Open generator</a>
+            <a href="college/2024-diploma-micromouse/draw.html">Draw a maze</a>
+            <a href="https://github.com/adm1nsys/student-works/tree/main/college/2024-diploma-micromouse">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot phone" href="college/2023-numeralogic/media/demo.mp4"><img src="assets/previews/numeralogic.jpg" alt="NumeraLogic landing page on a phone" loading="lazy"></a>
+        <div class="body">
+          <span class="date">COURSEWORK · NOV – DEC 2023</span>
+          <h3>NumeraLogic</h3>
+          <p>Android calculator app plus its download site. 58 iterations before submission; the video shows the install flow on a real phone.</p>
+          <div class="tags"><span class="tag">Android</span><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span></div>
+          <div class="links">
+            <a href="college/2023-numeralogic/media/demo.mp4">Watch demo</a>
+            <a href="college/2023-numeralogic/">Landing page</a>
+            <a href="https://github.com/adm1nsys/student-works/tree/main/college/2023-numeralogic">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="college/web-programming/"><img src="assets/previews/web-programming.jpg" alt="Web programming lab index" loading="lazy"></a>
+        <div class="body">
+          <span class="date">WEB PROGRAMMING · SEP 2023 – APR 2024</span>
+          <h3>Web programming course</h3>
+          <p>A year of classwork in one site: tables, layouts, forms with PHP, two calculators, the 15-puzzle, jQuery, Vue and a multi-language page. Git history includes the in-class snapshots from 21.09, 23.11 and 13.02.</p>
+          <div class="tags"><span class="tag">HTML/CSS</span><span class="tag">JavaScript</span><span class="tag">jQuery</span><span class="tag">Vue</span><span class="tag">PHP</span></div>
+          <div class="links">
+            <a href="college/web-programming/">Open</a>
+            <a href="college/web-programming/15.html">15-puzzle</a>
+            <a href="https://github.com/adm1nsys/student-works/tree/main/college/web-programming">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="college/2023-about-me/"><img src="assets/previews/about-me.jpg" alt="About me page" loading="lazy"></a>
+        <div class="body">
+          <span class="date">ASSIGNMENT · MAR – DEC 2023</span>
+          <h3>About me</h3>
+          <p>The “tell us about yourself” page. I had no idea what to write, so it became a hub for my own side projects, with a slide-out menu.</p>
+          <div class="tags"><span class="tag">HTML/CSS</span><span class="tag">JavaScript</span></div>
+          <div class="links">
+            <a href="college/2023-about-me/">Open</a>
+            <a href="https://github.com/adm1nsys/student-works/tree/main/college/2023-about-me">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="college/2023-calculator/"><img src="assets/previews/calculator.jpg" alt="Calculator" loading="lazy"></a>
+        <div class="body">
+          <span class="date">LAB · MAY 2023</span>
+          <h3>Calculator</h3>
+          <p>First JavaScript calculator with a custom design and font.</p>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">CSS</span></div>
+          <div class="links">
+            <a href="college/2023-calculator/">Open</a>
+            <a href="https://github.com/adm1nsys/student-works/tree/main/college/2023-calculator">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="college/2023-form/"><img src="assets/previews/form.jpg" alt="Form lab" loading="lazy"></a>
+        <div class="body">
+          <span class="date">LAB · APR 2023</span>
+          <h3>Form</h3>
+          <p>HTML forms and input types, styled by hand.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
+          <div class="links">
+            <a href="college/2023-form/">Open</a>
+            <a href="https://github.com/adm1nsys/student-works/tree/main/college/2023-form">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="college/2023-list/"><img src="assets/previews/list.jpg" alt="List lab" loading="lazy"></a>
+        <div class="body">
+          <span class="date">LAB · MAR 2023</span>
+          <h3>List</h3>
+          <p>Lists and navigation — the hub that linked the first labs together.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
+          <div class="links">
+            <a href="college/2023-list/">Open</a>
+            <a href="https://github.com/adm1nsys/student-works/tree/main/college/2023-list">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="college/2023-lab-title/"><img src="assets/previews/lab-title.jpg" alt="Lab report title page" loading="lazy"></a>
+        <div class="body">
+          <span class="date">LAB · FEB 2023</span>
+          <h3>Title page</h3>
+          <p>The very first lab: a title page for the lab reports, laid out in HTML.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span></div>
+          <div class="links">
+            <a href="college/2023-lab-title/">Open</a>
+            <a href="https://github.com/adm1nsys/student-works/tree/main/college/2023-lab-title">Source</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="university">
+    <div class="block-head">
+      <div class="eyebrow">University · 2023 – 2024</div>
+      <h2>Kharkiv National University of Radio Electronics</h2>
+      <p>Group VPVPS-23-2. Engineering graphics, design and layout.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <a class="shot contain" href="university/engineering-graphics/"><img src="assets/previews/eg-lab-2.jpg" alt="AutoCAD drawing: projections of a plane" loading="lazy"></a>
+        <div class="body">
+          <span class="date">ENGINEERING GRAPHICS · OCT – DEC 2023</span>
+          <h3>AutoCAD drawings</h3>
+          <p>Home assignments, labs and the exam drawing for engineering and computer graphics. Each sheet is available as PDF and as the original DWG.</p>
+          <div class="tags"><span class="tag">AutoCAD</span><span class="tag">DWG</span></div>
+          <div class="links">
+            <a href="university/engineering-graphics/">All drawings</a>
+            <a href="https://github.com/adm1nsys/student-works/tree/main/university/engineering-graphics">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="university/sticker-pack/Pack/Artboard%201.pdf"><img src="assets/previews/sticker-pack.jpg" alt="Sticker pack artboard" loading="lazy"></a>
+        <div class="body">
+          <span class="date">DESIGN · MAR 2024</span>
+          <h3>Sticker pack</h3>
+          <p>A series of stickers drawn in Illustrator, exported for messengers, with its own download page and a QR code on the poster.</p>
+          <div class="tags"><span class="tag">Illustrator</span><span class="tag">Figma</span><span class="tag">HTML</span></div>
+          <div class="links">
+            <a href="university/sticker-pack/Pack/Artboard%201.pdf">Poster</a>
+            <a href="university/sticker-pack/">Download page</a>
+            <a href="https://github.com/adm1nsys/student-works/tree/main/university/sticker-pack">Source</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="shot" href="university/grid-calculator/"><img src="assets/previews/grid-calculator.jpg" alt="Modular grid calculator" loading="lazy"></a>
+        <div class="body">
+          <span class="date">TOOL · NOV 2024</span>
+          <h3>Modular grid calculator</h3>
+          <p>Built for myself while laying out a magazine: enter the page size, columns, rows and gutters — get the module size.</p>
+          <div class="tags"><span class="tag">JavaScript</span><span class="tag">Layout</span></div>
+          <div class="links">
+            <a href="university/grid-calculator/">Open</a>
+            <a href="https://github.com/adm1nsys/student-works/tree/main/university/grid-calculator">Source</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <p class="note">These are student works, shown as they were submitted. The only changes are fixes that keep them running in this new location (relative paths, removed junk files). Older standalone repositories were merged here with their full commit history.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    Heorhii Romanenko · <a href="https://github.com/adm1nsys">github.com/adm1nsys</a> · <a href="https://adm1nsys.github.io/adm1nsys/">adm1nsys.github.io</a>
+  </div>
+</footer>
+
+</body>
+</html>
