@@ -1,0 +1,68 @@
+
+body{
+	background-color: rgb(51, 51, 51);
+}
+
+
+.page{
+	display: revert;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	color: black;
+	top: 50px;
+/*	width: 210px;
+	height: 297px;*/
+	width: 840px;
+	height: 1188px;
+	font-size: 14pt;
+	border-radius: 10px;
+	box-shadow: 5px 5px 50px black;
+}
+
+.content{
+	position: absolute;
+	top: 50px;
+	bottom: 50px;
+	left: 50px;
+	right: 50px;
+	color: black;
+	width: 740px;
+	height: 1088px;
+}
+
+.left{
+	display: block;
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+
+.center{
+	display: block;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	line-height: 150%;
+}
+
+
+/* right - контейнер для right1 */
+.right{
+	display: relative;
+	position: relative;
+	text-align: left;
+	line-height: 150%;
+}
+
+/* right1 - контеейнер который позицианируется */
+.right1{
+    width: 49%;
+	text-align: left;
+	margin-left: auto;
+	display: relative;
+	position: relative;
+	right: 0%;
+	line-height: 150%;
+}
