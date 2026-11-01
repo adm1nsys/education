@@ -1,6 +1,6 @@
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/banner-light.svg">
-  <img src="assets/readme/banner-dark.svg" alt="Student works — Heorhii Romanenko, 2023–2024" width="100%">
+  <img src="assets/readme/banner-dark.svg" alt="Student works — Heorhii Romanenko, 2023–2025" width="100%">
 </picture>
 
 <p>
