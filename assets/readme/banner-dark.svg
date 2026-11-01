@@ -13,7 +13,7 @@
     <path d="M0 0H192V192H0Z"/><path d="M48 0V96H96"/><path d="M144 0V48H96"/><path d="M0 144H48V192"/><path d="M96 192V144H144V96"/><path d="M192 144H144"/><path d="M48 48H96"/>
   </g>
   <circle cx="1028" cy="232" r="9" fill="#7c9cff"/>
-  <text x="72" y="104" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" letter-spacing="3" fill="#a1a1aa">HEORHII ROMANENKO · 2023 – 2025</text>
-  <text x="68" y="180" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Inter, Roboto, sans-serif" font-size="68" font-weight="700" letter-spacing="-2" fill="#f4f4f5">Student works</text>
-  <text x="72" y="232" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Inter, Roboto, sans-serif" font-size="22" fill="#a1a1aa">College &amp; university · web · diploma · magazine · AutoCAD · color</text>
+  <text x="72" y="104" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" letter-spacing="3" fill="#a1a1aa">HEORHII ROMANENKO · EDUCATION 2022 – 2025</text>
+  <text x="68" y="180" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Inter, Roboto, sans-serif" font-size="68" font-weight="700" letter-spacing="-2" fill="#f4f4f5">Selected coursework</text>
+  <text x="72" y="232" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Inter, Roboto, sans-serif" font-size="22" fill="#a1a1aa">Networks · diploma web app · AutoCAD · magazine layout · design</text>
 </svg>

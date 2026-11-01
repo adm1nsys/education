@@ -40,10 +40,6 @@ WORKS = {
         "A set of posts and stories for Instagram and Facebook for an electronics store.", [("", "Posts and stories")]),
     "university/patterns": (
         "Design · Sep 2024", "Patterns", "Three ornament studies.", [("", "Patterns")]),
-    "university/type-design": (
-        "Type design · FontLab · Sep 2024", "Modified Courier New",
-        "First type-design lab: editing glyphs of Courier New in FontLab. "
-        "<a href='specimen.html'>Open the specimen</a> to see the font live.", [("", "Font files")]),
     "university/logo-mst": (
         "Identity · Nov 2024", "Department logo",
         "Logo for the Media Systems and Technologies department of NURE.", [("", "Logo")]),
@@ -51,10 +47,6 @@ WORKS = {
         "Color science · Mar – May 2025", "Color science labs",
         "Swatch studies, a color wheel, and the Hermann grid illusion prepared in RGB and CMYK with notes on each variant.",
         [("lab-5", "Lab 5 · Hermann grid illusion"), ("lab-4", "Lab 4 · color wheel"), ("swatches", "Swatch studies")]),
-    "university/raster-imaging": (
-        "Raster imaging · Mar 2025", "Raster imaging labs",
-        "Scans made during the raster imaging labs: halftone and screen ruling measurements.",
-        [("lab-1", "Lab 1"), ("lab-2", "Lab 2"), ("lab-3", "Lab 3"), ("lab-4", "Lab 4")]),
     "university/technical-mechanics": (
         "Technical mechanics · Apr 2025", "Technical mechanics",
         "A mechanical drawing in AutoCAD with its explanatory note.", [("", "Files")]),
@@ -81,13 +73,13 @@ PAGE = """<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{title} · Student Works</title>
+<title>{title} · Education</title>
 <link rel="icon" href="{up}assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{up}assets/gallery.css">
 </head>
 <body>
 <div class="wrap">
-  <a class="back" href="{up}">← Student works</a>
+  <a class="back" href="{up}">← Education</a>
   <div class="eyebrow">{eyebrow}</div>
   <h1>{title}</h1>
   <p class="lead">{lead}</p>

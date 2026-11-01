@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = "https://github.com/adm1nsys/student-works/tree/main/"
+SRC = "https://github.com/adm1nsys/education/tree/main/"
 NEW_TAB = ' target="_blank" rel="noopener"'
 
 
@@ -72,24 +72,25 @@ COLLEGE = [
              "multi-language page. Git history includes the in-class snapshots.",
              ["HTML/CSS", "JavaScript", "jQuery", "Vue", "PHP"],
              [("Open", C + "web-programming/", True), ("15-puzzle", C + "web-programming/15.html", True)], demo=True),
-        card(C + "2023-calculator", "calculator.jpg", "FIRST LABS · FEB – DEC 2023", "First web labs",
-             "Where it started: a title page for lab reports, lists, forms, a first JavaScript calculator and the “about me” page.",
-             ["HTML", "CSS", "JavaScript"],
-             [("Calculator", C + "2023-calculator/", True), ("Form", C + "2023-form/", True), ("List", C + "2023-list/", True),
-              ("Title page", C + "2023-lab-title/", True), ("About me", C + "2023-about-me/", True)], demo=True),
+        card(C + "2023-calculator", "calculator.jpg", "FIRST LAB · MAY 2023", "First JavaScript calculator",
+             "Where it started: my first JavaScript lab, a calculator with its own design.",
+             ["JavaScript", "CSS"], [("Open", C + "2023-calculator/", True)], demo=True),
     ]),
 ]
 
 UNIVERSITY = [
-    group("Spring 2025", [
+    group("AutoCAD & technical drawing", [
+        card(U + "engineering-graphics", "eg-main.jpg", "", "Engineering graphics in AutoCAD",
+             "Two semesters of technical drawing: projections, sections and 3D models of parts, calculation-graphic tasks, "
+             "tests and the exam — every sheet as PDF and original DWG. The autumn course was part of the HHN-DITO II "
+             "project of Heilbronn University of Applied Sciences.",
+             ["AutoCAD", "DWG", "3D", "Technical drawing"],
+             [("All drawings", U + "engineering-graphics/", False), ("Certificate", U + "engineering-graphics/certificate-hhn-daad.pdf", True)],
+             shot="contain", featured=True, badge="Certificate · Heilbronn University / DAAD", card_id="autocad"),
         card(U + "technical-mechanics", "technical-mechanics.jpg", "TECHNICAL MECHANICS · APR 2025", "Technical mechanics",
              "A mechanical drawing in AutoCAD with a full explanatory note.", ["AutoCAD", "DWG"], [("Open", U + "technical-mechanics/", False)], shot="contain"),
-        card(U + "color-science", "color-science.jpg", "COLOR SCIENCE · MAR – MAY 2025", "Color science labs",
-             "Hermann grid illusion prepared for RGB and CMYK, a color wheel and swatch studies.", ["Illustrator", "RGB/CMYK"], [("Open", U + "color-science/", False)]),
-        card(U + "raster-imaging", "raster-imaging.jpg", "RASTER IMAGING · MAR 2025", "Raster imaging labs",
-             "Scanned halftone and screen-ruling measurements.", ["Scanning", "Halftone"], [("Open", U + "raster-imaging/", False)]),
     ]),
-    group("Autumn 2024", [
+    group("Layout & print", [
         card(U + "magazine-smart-home-living", "magazine.jpg", "", "Smart Home Living",
              "A magazine about smart lighting: hand sketches, four layout concepts, final layout on a modular grid — the grid "
              "was calculated with my own tool below.",
@@ -101,27 +102,22 @@ UNIVERSITY = [
              ["JavaScript", "Layout"], [("Open", U + "grid-calculator/", True)], demo=True),
         card(U + "print-finishing", "print-finishing.jpg", "PRINT FINISHING · DEC 2024", "Spot colors & embossing",
              "Artwork prepared for three spot colors and embossing, and an art prize poster.", ["Illustrator", "Prepress"], [("Open", U + "print-finishing/", False)], shot="contain"),
+        card(U + "color-science", "color-science.jpg", "COLOR SCIENCE · MAR – MAY 2025", "Color science labs",
+             "Hermann grid illusion prepared for RGB and CMYK, a color wheel and swatch studies.", ["Illustrator", "RGB/CMYK"], [("Open", U + "color-science/", False)]),
         card(U + "posters", "posters.jpg", "GRAPHIC DESIGN · DEC 2024", "Posters & infographics",
              "Kharkiv metro maps as infographic posters, and a poster about Kyiv.", ["Illustrator", "Infographics"], [("Open", U + "posters/", False)], shot="contain"),
+    ]),
+    group("Design", [
         card(U + "web-design-figma", "web-design-figma.jpg", "WEB DESIGN · OCT – DEC 2024", "Web design in Figma",
              "First page of a multi-page site, 400 / 404 error pages and a poster.", ["Figma", "UI"], [("Open", U + "web-design-figma/", False)]),
         card(U + "logo-mst", "logo-mst.jpg", "IDENTITY · NOV 2024", "Department logo",
              "Logo for the Media Systems and Technologies department.", ["Illustrator", "Identity"], [("Open", U + "logo-mst/", False)], shot="contain"),
-        card(U + "type-design", "type-design.jpg", "TYPE DESIGN · SEP 2024", "Modified Courier New",
-             "First type-design lab in FontLab: editing glyphs of an existing typeface.", ["FontLab", "TTF"], [("Specimen", U + "type-design/specimen.html", True)]),
         card(U + "advertising", "advertising.jpg", "ADVERTISING · SEP 2024", "Social media ads",
              "Posts and stories for Instagram and Facebook.", ["Figma", "Social"], [("Open", U + "advertising/", False)]),
-        card(U + "patterns", "patterns.jpg", "DESIGN · SEP 2024", "Patterns", "Three ornament studies.", ["Illustrator"], [("Open", U + "patterns/", False)], shot="contain"),
-    ]),
-    group("Spring 2024", [
         card(U + "sticker-pack", "sticker-pack.jpg", "DESIGN · MAR 2024", "Sticker pack",
              "A sticker series drawn in Illustrator, with a poster, QR code and download page.", ["Illustrator", "Figma", "HTML"],
              [("Poster", U + "sticker-pack/Pack/Artboard%201.pdf", True), ("Download page", U + "sticker-pack/", True)], demo=True),
-    ]),
-    group("Autumn 2023 – Spring 2024", [
-        card(U + "engineering-graphics", "eg-main.jpg", "ENGINEERING GRAPHICS · OCT 2023 – JUN 2024", "AutoCAD drawings",
-             "Two semesters of engineering graphics: labs, calculation-graphic tasks, tests and the exam — every sheet as PDF and original DWG.",
-             ["AutoCAD", "DWG"], [("All drawings", U + "engineering-graphics/", False)], shot="contain"),
+        card(U + "patterns", "patterns.jpg", "DESIGN · SEP 2024", "Patterns", "Three ornament studies.", ["Illustrator"], [("Open", U + "patterns/", False)], shot="contain"),
     ]),
 ]
 
@@ -139,10 +135,10 @@ def section(sid, eyebrow, title, desc, groups):
 def main() -> None:
     p = ROOT / "index.html"
     s = p.read_text(encoding="utf-8")
-    college = section("college", "College · works from 2022 – 2024", "Kharkiv Professional College of Information Technologies",
+    college = section("college", "College · selected works 2022 – 2024", "Kharkiv Professional College of Information Technologies",
                       "Separate structural unit of the National Aerospace University “Kharkiv Aviation Institute”. Specialty 172 "
                       "Telecommunications and Radio Engineering. Groups МЗ-21 → МЗ-31.", COLLEGE)
-    university = section("university", "University · works from 2023 – 2025", "Kharkiv National University of Radio Electronics",
+    university = section("university", "University · selected works 2023 – 2025", "Kharkiv National University of Radio Electronics",
                          "Publishing and printing, group ВПВПС-23-2. Layout, print production, color, type and engineering graphics.", UNIVERSITY)
     s = re.sub(r'  <section class="block" id="college">.*?\n  </section>', lambda m: college, s, count=1, flags=re.S)
     s = re.sub(r'  <section class="block" id="university">.*?\n  </section>', lambda m: university, s, count=1, flags=re.S)

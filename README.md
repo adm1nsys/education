@@ -1,65 +1,60 @@
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/banner-light.svg">
-  <img src="assets/readme/banner-dark.svg" alt="Student works — Heorhii Romanenko, 2023–2025" width="100%">
+  <img src="assets/readme/banner-dark.svg" alt="Selected coursework — Heorhii Romanenko, 2022–2025" width="100%">
 </picture>
 
 <p>
-  <a href="https://adm1nsys.github.io/student-works/"><img src="https://img.shields.io/badge/Open_the_site-070707?style=for-the-badge&logo=safari&logoColor=white" alt="Open the site"></a>
+  <a href="https://adm1nsys.github.io/education/"><img src="https://img.shields.io/badge/Open_the_site-070707?style=for-the-badge&logo=safari&logoColor=white" alt="Open the site"></a>
 </p>
 
-A selection of what I made while studying in Kharkiv: network labs in Cisco Packet Tracer, a year of web-programming classwork, an Android coursework, the diploma project, a printed magazine, AutoCAD drawings, color and type labs. Not every lab is here — only the ones worth showing.
+A curated selection of my coursework from college and university in Kharkiv, 2022–2025: computer networks in Cisco Packet Tracer, a diploma web app, two semesters of AutoCAD drawings, a magazine layout and design work.
 
-The works are shown as they were made. The only changes are fixes that keep them running in this new location (relative paths, removed `.DS_Store` files). The browsable version with previews is on the **[site](https://adm1nsys.github.io/student-works/)**.
+This is **not every lab** — only the ones worth showing. Works are kept as they were submitted; the only changes are fixes that keep them running here (relative paths, removed junk files). The browsable version with previews is on the **[site](https://adm1nsys.github.io/education/)**.
 
 ## College
 
 Kharkiv Professional College of Information Technologies, National Aerospace University “Kharkiv Aviation Institute”.
-Specialty 172 Telecommunications and Radio Engineering, groups МЗ-21 → МЗ-31. Works from 2022 – 2024.
-
-| | Work | What it is | Stack |
-|---|---|---|---|
-| ⭐ | [**Micromouse maze editor**](college/2024-diploma-micromouse) · Jun 2024 | **Diploma project.** Generates 16×16 mazes for Micromouse robot competitions from prepared 4×4 sectors, lets you draw one by hand, exports and imports JSON. | JS, jQuery, JSON |
-| | [**NumeraLogic**](college/2023-numeralogic) · Nov – Dec 2023 | Coursework: Android calculator built in MIT App Inventor ([source](college/2023-numeralogic/app-inventor), [explanatory note](college/2023-numeralogic/docs/explanatory-note.pdf)) and its download site. [Demo video](college/2023-numeralogic/media/demo.mp4). | Android, JS |
-| | [**Web programming course**](college/web-programming) · Sep 2023 – Apr 2024 | A year of classwork: tables, layouts, PHP form, calculators, 15-puzzle, jQuery, Vue, multi-language page. | HTML, CSS, JS, jQuery, Vue, PHP |
-| | [**Computer networks**](college/computer-networks) · 2022 – 2023 | TCP/IP, office LAN, wireless networks and a company network project in Packet Tracer; plus a [network security lab](college/network-security). | Cisco Packet Tracer |
-| | [Circuit design](college/electronics) · 2022 – 2023 | Digital logic in Multisim and a PCB layout. | Multisim, Sprint-Layout |
-| | First web labs · Feb – Dec 2023 | [Calculator](college/2023-calculator), [form](college/2023-form), [list](college/2023-list), [title page](college/2023-lab-title), [about me](college/2023-about-me) — where it started. | HTML, CSS, JS |
-
-## University
-
-Kharkiv National University of Radio Electronics, publishing and printing, group ВПВПС-23-2. Works from 2023 – 2025.
+Specialty 172 Telecommunications and Radio Engineering, groups МЗ-21 → МЗ-31. Selected works 2022 – 2024.
 
 | | Work | What it is | Tools |
 |---|---|---|---|
-| ⭐ | [**Smart Home Living**](university/magazine-smart-home-living) · Dec 2024 | **Coursework.** A 21-page magazine about smart lighting: sketches → four concepts → final layout on a modular grid. [PDF](university/magazine-smart-home-living/smart-home-living.pdf) | Illustrator, Figma |
-| | [**Modular grid calculator**](university/grid-calculator) · Nov 2024 | The tool I wrote to calculate the magazine's grid. | JS |
+| ⭐ | [**Micromouse maze editor**](college/2024-diploma-micromouse) · Jun 2024 | **Diploma project.** Generates 16×16 mazes for Micromouse robot competitions from prepared 4×4 sectors, lets you draw one by hand, exports and imports JSON. | JS, jQuery, JSON |
+| | [**Computer networks**](college/computer-networks) · 2022 – 2023 | TCP/IP, office LAN, wireless networks and a company network project in Packet Tracer; plus a [network security lab](college/network-security). | Cisco Packet Tracer |
+| | [**NumeraLogic**](college/2023-numeralogic) · Oct – Dec 2023 | Coursework: Android calculator built in MIT App Inventor ([source](college/2023-numeralogic/app-inventor), [explanatory note](college/2023-numeralogic/docs/explanatory-note.pdf)) and its download site. [Demo video](college/2023-numeralogic/media/demo.mp4). | App Inventor, HTML/CSS |
+| | [Circuit design](college/electronics) · 2022 – 2023 | Digital logic in Multisim and a PCB layout. | Multisim, Sprint-Layout |
+| | [Web programming course](college/web-programming) · Sep 2023 – Apr 2024 | A year of classwork: tables, layouts, PHP form, calculators, 15-puzzle, jQuery, Vue, multi-language page. | HTML, CSS, JS, PHP |
+| | [First JavaScript calculator](college/2023-calculator) · May 2023 | Where it started. | JS, CSS |
+
+## University
+
+Kharkiv National University of Radio Electronics, publishing and printing, group ВПВПС-23-2. Selected works 2023 – 2025.
+
+| | Work | What it is | Tools |
+|---|---|---|---|
+| ⭐ | [**Engineering graphics**](university/engineering-graphics) · Sep 2023 – Jun 2024 | Two semesters of technical drawing: projections, sections, 3D models, tests and exam — every sheet as PDF and DWG. [Certificate of participation](university/engineering-graphics/certificate-hhn-daad.pdf) — Heilbronn University of Applied Sciences, DAAD. | AutoCAD |
 | | [Technical mechanics](university/technical-mechanics) · Apr 2025 | Mechanical drawing with explanatory note. | AutoCAD |
-| | [Color science](university/color-science) · Mar – May 2025 | Hermann grid in RGB/CMYK, color wheel, swatches. | Illustrator |
-| | [Raster imaging](university/raster-imaging) · Mar 2025 | Halftone and screen-ruling scans. | Scanner |
+| ⭐ | [**Smart Home Living**](university/magazine-smart-home-living) · Dec 2024 | **Coursework.** A magazine about smart lighting: sketches → four concepts → final layout on a modular grid. [PDF](university/magazine-smart-home-living/smart-home-living.pdf) | Illustrator, Figma |
+| | [Modular grid calculator](university/grid-calculator) · Nov 2024 | The tool I wrote to calculate the magazine's grid. | JS |
 | | [Spot colors & embossing](university/print-finishing) · Dec 2024 | Prepress for three spot colors and embossing, art prize poster. | Illustrator |
+| | [Color science](university/color-science) · Mar – May 2025 | Hermann grid in RGB/CMYK, color wheel, swatches. | Illustrator |
 | | [Posters & infographics](university/posters) · Dec 2024 | Kharkiv metro infographics, Kyiv poster. | Illustrator |
 | | [Web design in Figma](university/web-design-figma) · Oct – Dec 2024 | Multi-page site, 400/404 pages, poster. | Figma |
 | | [Department logo](university/logo-mst) · Nov 2024 | Logo for Media Systems and Technologies. | Illustrator |
-| | [Modified Courier New](university/type-design) · Sep 2024 | First type-design lab. | FontLab |
 | | [Social media ads](university/advertising) · Sep 2024 | Posts and stories. | Figma |
-| | [Patterns](university/patterns) · Sep 2024 | Ornament studies. | Illustrator |
 | | [Sticker pack](university/sticker-pack) · Mar 2024 | Sticker series with poster, QR code and download page. | Illustrator, Figma |
-| | [**Engineering graphics**](university/engineering-graphics) · Oct 2023 – Jun 2024 | Two semesters: projections and 3D models, labs, tests, exam — every sheet as PDF and DWG. | AutoCAD |
+| | [Patterns](university/patterns) · Sep 2024 | Ornament studies. | Illustrator |
 
-Gallery pages for the design works are generated by [`tools/build_galleries.py`](tools/build_galleries.py).
+Gallery pages are generated by [`tools/build_galleries.py`](tools/build_galleries.py), the main page sections by [`tools/build_index_sections.py`](tools/build_index_sections.py).
 
 ## History
 
-This repository replaces nine older standalone repositories. Each one was merged in with its full commit history, so `git log -- <folder>` shows how the work evolved. In-class snapshots of the web-programming course (21.09.2023, 23.11.2023, 13.02.2024) are committed on their original dates.
+This repository replaces nine older standalone repositories. Each was merged in with its full commit history, so `git log -- <folder>` shows how a work evolved; commits for material added later carry the date the work was made. Some of the earliest labs were later left out of the current version — their history is still in the log.
 
 | Old repository | Now |
 |---|---|
-| `lab` | [college/2023-lab-title](college/2023-lab-title) |
-| `list` | [college/2023-list](college/2023-list) |
-| `form` | [college/2023-form](college/2023-form) |
-| `calculator` | [college/2023-calculator](college/2023-calculator) |
-| `summary` | [college/2023-about-me](college/2023-about-me) |
 | `labs` | [college/web-programming](college/web-programming) |
 | `NumeraLogic` | [college/2023-numeralogic](college/2023-numeralogic) |
+| `calculator` | [college/2023-calculator](college/2023-calculator) |
 | `sticker-pack` | [university/sticker-pack](university/sticker-pack) |
 | `grid-calculator` | [university/grid-calculator](university/grid-calculator) |
+| `lab`, `list`, `form`, `summary` | earliest labs — in the history only |
