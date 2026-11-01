@@ -58,10 +58,22 @@ WORKS = {
     "university/technical-mechanics": (
         "Technical mechanics · Apr 2025", "Technical mechanics",
         "A mechanical drawing in AutoCAD with its explanatory note.", [("", "Files")]),
-    "college/2023-networking": (
-        "Networking · Oct 2023", "Cisco Packet Tracer lab",
-        "A network topology built in Cisco Packet Tracer. Open <code>lab.pkt</code> in Packet Tracer to explore it.",
-        [("", "Files")]),
+    "college/computer-networks": (
+        "Computer networks · works from 2022 – 2023", "Computer networks course",
+        "From network hardware and TCP/IP to designing networks in Cisco Packet Tracer: an office LAN, wireless networks "
+        "and a network project for a company. Screenshots below; full reports as PDF. "
+        "Related: <a href='../network-security/'>network security lab</a>.",
+        [("screenshots/lab-9", "Lab 9 · office LAN"), ("screenshots/lab-10", "Lab 10 · wireless network"),
+         ("screenshots/lab-12", "Lab 12 · network equipment"), ("screenshots/practical-5", "Practical 5 · company network project"),
+         ("reports", "Reports"), ("packet-tracer", "Packet Tracer file")]),
+    "college/network-security": (
+        "Network security · Feb 2024", "Network security",
+        "Lab on building protected virtual networks with firewalls.", [("", "Report")]),
+    "college/electronics": (
+        "Electronics · works from 2022 – 2023", "Circuit design labs",
+        "Digital logic simulated in Multisim — logic gates, multiplexers, flip-flops — and a PCB layout "
+        "drawn in Sprint-Layout during practical training.",
+        [("reports", "Reports"), ("multisim", "Multisim circuits"), ("pcb", "PCB layout (Sprint-Layout)")]),
 }
 
 PAGE = """<!doctype html>
