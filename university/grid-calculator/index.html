@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модульна сітка</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            padding: 0px;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #444;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .form-container input, .form-container select, .form-container button {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .grid-preview {
+            margin: 20px auto;
+            background: #fff;
+            position: relative;
+            display: grid;
+        }
+        .module {
+            background-color: rgba(0, 0, 255, 0.2); /* Синий фон модулей */
+        }
+        .output-step {
+            background: #555;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        #output{
+            margin: auto;
+            max-width: 800px;
+        }
+        header, footer {
+            text-align: center;
+            background-color: #444;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 5px 0;
+            font-size: 1.2rem;
+        }
+        footer p {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+        footer a {
+            color: #1e90ff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 10px;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .recommendation {
+            background-color: #555;
+            padding: 15px;
+            margin-top: 20px;
+            border-left: 5px solid #1e90ff;
+            font-size: 1rem;
+        }
+        .links {
+            margin-top: 30px;
+        }
+        .links h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .links li {
+            margin: 10px 0;
+        }
+        .links a {
+            color: #1e90ff;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Модульна сітка</h1>
+        <p>Калькулятор для полегшення роботи з модульною сіткою</p>
+    </header>
+    <div class="form-container">
+        <label>Розмір робочої області:</label>
+        <input type="number" id="width" placeholder="Ширина (мм або дюйми)">
+        <input type="number" id="height" placeholder="Висота (мм або дюйми)">
+        
+        <label>Одиниці виміру:</label>
+        <select id="unit">
+            <option value="mm">Міліметри</option>
+            <option value="inch">Дюйми</option>
+        </select>
+        
+        <label>Кількість стовпців:</label>
+        <input type="number" id="columns" placeholder="Стовпці">
+        
+        <label>Кількість рядків:</label>
+        <input type="number" id="rows" placeholder="Рядки">
+        
+        <label>Проміжки між стовпцями:</label>
+        <input type="number" id="gutterX" placeholder="Проміжки (мм або дюйми)">
+        
+        <label>Проміжки між рядками:</label>
+        <input type="number" id="gutterY" placeholder="Проміжки (мм або дюйми)">
+        
+        <button id="calculate">Розрахувати</button>
+    </div>
+    
+    <div class="container">
+         <h2>Перегляд:</h2>
+            <div id="grid-container" class="grid-preview"></div>
+    </div>
+    
+    <div id="output">
+        <h2>Результати:</h2>
+        <div id="steps"></div>
+        <p id="module-width">Ширина модуля:</p>
+        <p id="module-height">Висота модуля:</p>
+        <p id="check-width">Перевірка ширини:</p>
+        <p id="check-height">Перевірка висоти:</p>
+    </div>
+
+    <div class="container">
+    <h2>Рекомендації</h2>
+    <div class="recommendation">
+        <p>
+            Для уникнення похибок у роботі з модульною сіткою рекомендується використовувати числа 
+            без періодичних дробів. Це спростить процес адаптації під різні формати та забезпечить 
+            точність у роботі з друком.
+        </p>
+    </div>
+
+        <div class="links">
+            <h3>Корисні ресурси</h3>
+            <ul>
+                <li>
+                    <a href="https://www.smashingmagazine.com/2011/12/golden-grid-system/" target="_blank">
+                        Golden Grid System
+                    </a>
+                </li>
+                <li>
+                    <a href="https://gridbyexample.com/" target="_blank">
+                        Grid by Example
+                    </a>
+                </li>
+                <li>
+                    <a href="https://type-scale.com/" target="_blank">
+                        Type Scale Calculator
+                    </a>
+                </li>
+                <li>
+                    <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">
+                        Complete Guide to CSS Grid
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Проєкт розроблено для спрощення роботи з модульними сітками</p>
+        <p>
+            <a href="https://github.com/adm1nsys" target="_blank">GitHub</a>
+            <a href="https://github.com/adm1nsys/grid-calculator" target="_blank">Репозиторій</a>
+            <a href="https://www.instagram.com/_george_.png" target="_blank">Instagram</a>
+        </p>
+    </footer>
+    
+    <script>
+        // Функція для перевірки частоти числа
+        const checkPeriodic = (value) => {
+            const rounded = value.toFixed(15); // Обмежте число для пошуку періоду
+            const parts = rounded.split(".");
+            if (parts[1] && parts[1].length > 10) {
+                // Перевіряємо повторюваність перших ознак дробової частини
+                const match = /^(\d+?)\1+$/.exec(parts[1]);
+                if (match) {
+                    return `${parts[0]}.(${match[1]})`;
+                }
+            }
+            return value.toFixed(4); // Якщо періоду немає, ми повертаємо округлі
+        };
+
+        document.getElementById('calculate').addEventListener('click', () => {
+            // Вхідні дані
+            const width = parseFloat(document.getElementById('width').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const unit = document.getElementById('unit').value;
+            const columns = parseInt(document.getElementById('columns').value);
+            const rows = parseInt(document.getElementById('rows').value);
+            const gutterX = parseFloat(document.getElementById('gutterX').value);
+            const gutterY = parseFloat(document.getElementById('gutterY').value);
+            
+            if (!width || !height || !columns || !rows || gutterX === undefined || gutterY === undefined) {
+                alert('Будь ласка, заповніть усі поля');
+                return;
+            }
+
+            // Перетворення одиниць у мм для обчислень (якщо вибираються дюйми)
+            const conversionFactor = unit === 'inch' ? 25.4 : 1;
+            const adjustedWidth = width * conversionFactor;
+            const adjustedHeight = height * conversionFactor;
+            const adjustedGutterX = gutterX * conversionFactor;
+            const adjustedGutterY = gutterY * conversionFactor;
+
+            const stepsContainer = document.getElementById('steps');
+            stepsContainer.innerHTML = ''; // Очищення попередніх кроків
+
+            // Шаг 1: Сума інтервалів
+            const totalGutterX = adjustedGutterX * (columns - 1);
+            const totalGutterY = adjustedGutterY * (rows - 1);
+            stepsContainer.innerHTML += `<div class="output-step">Сума проміжків між стовпцями: ${totalGutterX.toFixed(2)} ${unit}</div>`;
+            stepsContainer.innerHTML += `<div class="output-step">Сума проміжків між рядками: ${totalGutterY.toFixed(2)} ${unit}</div>`;
+
+            // Шаг 2: Залишившаяся область
+            const remainingWidth = adjustedWidth - totalGutterX;
+            const remainingHeight = adjustedHeight - totalGutterY;
+            stepsContainer.innerHTML += `<div class="output-step">Залишкова ширина для модулів: ${remainingWidth.toFixed(2)} ${unit}</div>`;
+            stepsContainer.innerHTML += `<div class="output-step">Залишкова висота для модулів: ${remainingHeight.toFixed(2)} ${unit}</div>`;
+
+            // Шаг 3: Розміри модуля
+            const moduleWidth = remainingWidth / columns;
+            const moduleHeight = remainingHeight / rows;
+
+            // Частота перевірки
+            const moduleWidthStr = checkPeriodic(moduleWidth / conversionFactor);
+            const moduleHeightStr = checkPeriodic(moduleHeight / conversionFactor);
+
+            stepsContainer.innerHTML += `<div class="output-step">Ширина одного модуля: ${moduleWidthStr} ${unit}</div>`;
+            stepsContainer.innerHTML += `<div class="output-step">Висота одного модуля: ${moduleHeightStr} ${unit}</div>`;
+
+            // Перевірка розрахунку повернення
+            const checkWidth = moduleWidth * columns + totalGutterX;
+            const checkHeight = moduleHeight * rows + totalGutterY;
+
+            document.getElementById('module-width').innerText = `Ширина модуля: ${moduleWidthStr} ${unit}`;
+            document.getElementById('module-height').innerText = `Висота модуля: ${moduleHeightStr} ${unit}`;
+            document.getElementById('check-width').innerText = `Перевірка ширини: ${checkWidth.toFixed(2)} ${unit} (очікувалося: ${width})`;
+            document.getElementById('check-height').innerText = `Перевірка висоти: ${checkHeight.toFixed(2)} ${unit} (очікувалося: ${height})`;
+
+            // Візуалізація сетки
+            const gridContainer = document.getElementById('grid-container');
+            gridContainer.style.width = `${width}${unit}`;
+            gridContainer.style.height = `${height}${unit}`;
+            gridContainer.style.gridTemplateColumns = `repeat(${columns}, ${moduleWidth / conversionFactor}${unit})`;
+            gridContainer.style.gridTemplateRows = `repeat(${rows}, ${moduleHeight / conversionFactor}${unit})`;
+            gridContainer.style.gap = `${gutterY}${unit} ${gutterX}${unit}`;
+
+            gridContainer.innerHTML = ''; // Очищення попередньої сетки
+
+            for (let i = 0; i < rows * columns; i++) {
+                const module = document.createElement('div');
+                module.className = 'module';
+                gridContainer.appendChild(module);
+            }
+        });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Зразки даних
+        document.getElementById("width").value = 145;
+        document.getElementById("height").value = 195;
+        document.getElementById("unit").value = "mm";
+        document.getElementById("columns").value = 6;
+        document.getElementById("rows").value = 8;
+        document.getElementById("gutterX").value = 5;
+        document.getElementById("gutterY").value = 7;
+        // Виклик функції розрахунку
+        const calculateButton = document.getElementById("calculate");
+        if (calculateButton) {
+            calculateButton.click();
+        }
+    });
+</script>
+</body>
+</html>
