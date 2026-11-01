@@ -9,7 +9,7 @@
 
 A curated selection of my coursework from college and university in Kharkiv, 2022–2025: computer networks in Cisco Packet Tracer, a diploma web app, two semesters of AutoCAD drawings, a magazine layout and design work.
 
-This is **not every lab** — only the ones worth showing. Works are kept as they were submitted; the only changes are fixes that keep them running here (relative paths, removed junk files). The browsable version with previews is on the **[site](https://adm1nsys.github.io/education/)**.
+This is **not every lab** — only the ones worth showing. Works are kept as they were submitted; the only changes are fixes that keep them running here (relative paths, removed junk files). The browsable version with previews is on the **[site](https://adm1nsys.github.io/education/)** — in German, with an English switch.
 
 ## College
 
