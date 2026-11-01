@@ -47,8 +47,7 @@ COLLEGE = [
              "the generator picks a prepared 4×4 block for each one and assembles a full maze. Mazes can be drawn by hand, "
              "exported to JSON and imported back.",
              ["JavaScript", "jQuery", "JSON", "HTML/CSS"],
-             [("Open generator", C + "2024-diploma-micromouse/", True), ("Draw a maze", C + "2024-diploma-micromouse/draw.html", True),
-              ("Defence slides", C + "2024-diploma-micromouse/docs/presentation.pdf", True)],
+             [("Open generator", C + "2024-diploma-micromouse/", True), ("Draw a maze", C + "2024-diploma-micromouse/draw.html", True)],
              featured=True, badge="Diploma project · June 2024", orig="«Сторінка для створення лабіринтів»", card_id="diploma", demo=True),
         card(C + "2023-numeralogic", "numeralogic.jpg", "COURSEWORK · OCT – DEC 2023", "NumeraLogic",
              "Android calculator built in MIT App Inventor, plus its download site. The video shows the install flow on a real phone.",
@@ -62,9 +61,6 @@ COLLEGE = [
              "Network hardware, TCP/IP, then designing networks in Cisco Packet Tracer: an office LAN, wireless networks, "
              "and a network project for a company. Reports, screenshots and a Packet Tracer file.",
              ["Cisco Packet Tracer", "TCP/IP", "LAN", "Wi-Fi"], [("Open", C + "computer-networks/", False), ("Security lab", C + "network-security/", False)]),
-        card(C + "electronics", "electronics.jpg", "ELECTRONICS · 2022 – 2023", "Circuit design labs",
-             "Logic gates, multiplexers and flip-flops simulated in Multisim, plus a PCB layout from practical training.",
-             ["Multisim", "Sprint-Layout", "Digital logic"], [("Open", C + "electronics/", False)], shot="contain"),
     ]),
     group("Web programming", [
         card(C + "web-programming", "web-programming.jpg", "WEB PROGRAMMING · SEP 2023 – APR 2024", "Web programming course",
@@ -86,7 +82,12 @@ UNIVERSITY = [
              "project of Heilbronn University of Applied Sciences.",
              ["AutoCAD", "DWG", "3D", "Technical drawing"],
              [("All drawings", U + "engineering-graphics/", False), ("Certificate", U + "engineering-graphics/certificate-hhn-daad.pdf", True)],
-             shot="contain", featured=True, badge="Certificate · Heilbronn University / DAAD", card_id="autocad"),
+             shot="contain", featured=True, badge="Two semesters · Sep 2023 – Jun 2024", card_id="autocad"),
+        card(U + "engineering-graphics", "certificate.jpg", "CERTIFICATE · APR 2024", "Certificate of participation",
+             "51-hour course “Engineering and Computer Graphics” (Sep – Dec 2023) within the HHN-DITO II project of "
+             "Heilbronn University of Applied Sciences, funded by the DAAD and the German Federal Ministry of Education and Research.",
+             ["DAAD", "Heilbronn University", "BMBF"],
+             [("Open certificate", U + "engineering-graphics/certificate-hhn-daad.pdf", True)], shot="cert", card_id="certificate"),
         card(U + "technical-mechanics", "technical-mechanics.jpg", "TECHNICAL MECHANICS · APR 2025", "Technical mechanics",
              "A mechanical drawing in AutoCAD with a full explanatory note.", ["AutoCAD", "DWG"], [("Open", U + "technical-mechanics/", False)], shot="contain"),
     ]),

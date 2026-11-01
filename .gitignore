@@ -1,4 +1,20 @@
+# local working folders (raw archives, source repos, editor config)
 _archive/
 _sources/
 .claude/
+.idea/
+.vscode/
+
+# OS and editor junk
 .DS_Store
+Thumbs.db
+~$*
+*.tmp
+__pycache__/
+
+# secrets must never land here
+*.jks
+*.keystore
+*.pem
+*.key
+.env

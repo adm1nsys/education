@@ -61,11 +61,6 @@ WORKS = {
     "college/network-security": (
         "Network security · Feb 2024", "Network security",
         "Lab on building protected virtual networks with firewalls.", [("", "Report")]),
-    "college/electronics": (
-        "Electronics · works from 2022 – 2023", "Circuit design labs",
-        "Digital logic simulated in Multisim — logic gates, multiplexers, flip-flops — and a PCB layout "
-        "drawn in Sprint-Layout during practical training.",
-        [("reports", "Reports"), ("multisim", "Multisim circuits"), ("pcb", "PCB layout (Sprint-Layout)")]),
 }
 
 PAGE = """<!doctype html>

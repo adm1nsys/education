@@ -21,7 +21,6 @@ Specialty 172 Telecommunications and Radio Engineering, groups МЗ-21 → МЗ-
 | ⭐ | [**Micromouse maze editor**](college/2024-diploma-micromouse) · Jun 2024 | **Diploma project.** Generates 16×16 mazes for Micromouse robot competitions from prepared 4×4 sectors, lets you draw one by hand, exports and imports JSON. | JS, jQuery, JSON |
 | | [**Computer networks**](college/computer-networks) · 2022 – 2023 | TCP/IP, office LAN, wireless networks and a company network project in Packet Tracer; plus a [network security lab](college/network-security). | Cisco Packet Tracer |
 | | [**NumeraLogic**](college/2023-numeralogic) · Oct – Dec 2023 | Coursework: Android calculator built in MIT App Inventor ([source](college/2023-numeralogic/app-inventor), [explanatory note](college/2023-numeralogic/docs/explanatory-note.pdf)) and its download site. [Demo video](college/2023-numeralogic/media/demo.mp4). | App Inventor, HTML/CSS |
-| | [Circuit design](college/electronics) · 2022 – 2023 | Digital logic in Multisim and a PCB layout. | Multisim, Sprint-Layout |
 | | [Web programming course](college/web-programming) · Sep 2023 – Apr 2024 | A year of classwork: tables, layouts, PHP form, calculators, 15-puzzle, jQuery, Vue, multi-language page. | HTML, CSS, JS, PHP |
 | | [First JavaScript calculator](college/2023-calculator) · May 2023 | Where it started. | JS, CSS |
 

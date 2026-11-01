@@ -74,6 +74,8 @@ section.block { padding: 72px 0 8px; }
 .featured .shot { aspect-ratio: auto; min-height: 320px; border-bottom: 0; border-right: 1px solid var(--line); }
 .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
 .shot.contain img { object-fit: contain; padding: 12px; background: #fff; }
+.shot.cert { background: #e9e9ec; }
+.shot.cert img { object-fit: cover; object-position: center 22%; }
 .shot.phone img { object-fit: contain; background: #000; }
 .body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .date { font: 600 12px/1 ui-monospace, "SF Mono", Menlo, monospace; color: var(--faint); letter-spacing: .06em; }
@@ -108,14 +110,14 @@ footer a { color: var(--muted); }
     <p class="lead">A selection of what I made while studying in Kharkiv — from network labs in Cisco Packet Tracer and a diploma web app to a printed magazine and AutoCAD drawings. Not every lab is here, only the ones worth showing; they are kept as they were made.</p>
     <div class="stats">
       <div class="stat"><b>2</b><span>institutions</span></div>
-      <div class="stat"><b>18</b><span>selected works</span></div>
+      <div class="stat"><b>17</b><span>selected works</span></div>
       <div class="stat"><b>9</b><span>old repos merged with history</span></div>
     </div>
     <div class="jump">
       <a class="btn primary" href="#diploma">Diploma project →</a>
       <a class="btn" href="#college">College</a>
       <a class="btn" href="#university">University</a>
-      <a class="btn" href="#autocad">DAAD certificate</a>
+      <a class="btn" href="#certificate">DAAD certificate</a>
       <a class="btn" href="https://github.com/adm1nsys/education">Source on GitHub</a>
     </div>
   </div>
@@ -139,7 +141,7 @@ footer a { color: var(--muted); }
           <div class="orig">«Сторінка для створення лабіринтів»</div>
           <p>A web page for building mazes for Micromouse robot competitions. The 16×16 field is split into 16 sectors; the generator picks a prepared 4×4 block for each one and assembles a full maze. Mazes can be drawn by hand, exported to JSON and imported back.</p>
           <div class="tags"><span class="tag">JavaScript</span><span class="tag">jQuery</span><span class="tag">JSON</span><span class="tag">HTML/CSS</span></div>
-          <div class="links"><a href="college/2024-diploma-micromouse/" target="_blank" rel="noopener">Open generator</a><a href="college/2024-diploma-micromouse/draw.html" target="_blank" rel="noopener">Draw a maze</a><a href="college/2024-diploma-micromouse/docs/presentation.pdf" target="_blank" rel="noopener">Defence slides</a><a href="https://github.com/adm1nsys/education/tree/main/college/2024-diploma-micromouse" target="_blank" rel="noopener">Source</a></div>
+          <div class="links"><a href="college/2024-diploma-micromouse/" target="_blank" rel="noopener">Open generator</a><a href="college/2024-diploma-micromouse/draw.html" target="_blank" rel="noopener">Draw a maze</a><a href="https://github.com/adm1nsys/education/tree/main/college/2024-diploma-micromouse" target="_blank" rel="noopener">Source</a></div>
         </div>
       </article>
 
@@ -165,17 +167,6 @@ footer a { color: var(--muted); }
           <p>Network hardware, TCP/IP, then designing networks in Cisco Packet Tracer: an office LAN, wireless networks, and a network project for a company. Reports, screenshots and a Packet Tracer file.</p>
           <div class="tags"><span class="tag">Cisco Packet Tracer</span><span class="tag">TCP/IP</span><span class="tag">LAN</span><span class="tag">Wi-Fi</span></div>
           <div class="links"><a href="college/computer-networks/">Open</a><a href="college/network-security/">Security lab</a><a href="https://github.com/adm1nsys/education/tree/main/college/computer-networks" target="_blank" rel="noopener">Source</a></div>
-        </div>
-      </article>
-
-      <article class="card">
-        <a class="shot contain" href="college/electronics/"><img src="assets/previews/electronics.jpg" alt="Circuit design labs" loading="lazy"></a>
-        <div class="body">
-          <span class="date">ELECTRONICS · 2022 – 2023</span>
-          <h3>Circuit design labs</h3>
-          <p>Logic gates, multiplexers and flip-flops simulated in Multisim, plus a PCB layout from practical training.</p>
-          <div class="tags"><span class="tag">Multisim</span><span class="tag">Sprint-Layout</span><span class="tag">Digital logic</span></div>
-          <div class="links"><a href="college/electronics/">Open</a><a href="https://github.com/adm1nsys/education/tree/main/college/electronics" target="_blank" rel="noopener">Source</a></div>
         </div>
       </article>
     </div>
@@ -217,11 +208,22 @@ footer a { color: var(--muted); }
       <article class="card featured" id="autocad">
         <a class="shot contain" href="university/engineering-graphics/"><img src="assets/previews/eg-main.jpg" alt="Engineering graphics in AutoCAD" loading="lazy"></a>
         <div class="body">
-          <span class="badge">Certificate · Heilbronn University / DAAD</span>
+          <span class="badge">Two semesters · Sep 2023 – Jun 2024</span>
           <h3>Engineering graphics in AutoCAD</h3>
           <p>Two semesters of technical drawing: projections, sections and 3D models of parts, calculation-graphic tasks, tests and the exam — every sheet as PDF and original DWG. The autumn course was part of the HHN-DITO II project of Heilbronn University of Applied Sciences.</p>
           <div class="tags"><span class="tag">AutoCAD</span><span class="tag">DWG</span><span class="tag">3D</span><span class="tag">Technical drawing</span></div>
           <div class="links"><a href="university/engineering-graphics/">All drawings</a><a href="university/engineering-graphics/certificate-hhn-daad.pdf" target="_blank" rel="noopener">Certificate</a><a href="https://github.com/adm1nsys/education/tree/main/university/engineering-graphics" target="_blank" rel="noopener">Source</a></div>
+        </div>
+      </article>
+
+      <article class="card" id="certificate">
+        <a class="shot cert" href="university/engineering-graphics/"><img src="assets/previews/certificate.jpg" alt="Certificate of participation" loading="lazy"></a>
+        <div class="body">
+          <span class="date">CERTIFICATE · APR 2024</span>
+          <h3>Certificate of participation</h3>
+          <p>51-hour course “Engineering and Computer Graphics” (Sep – Dec 2023) within the HHN-DITO II project of Heilbronn University of Applied Sciences, funded by the DAAD and the German Federal Ministry of Education and Research.</p>
+          <div class="tags"><span class="tag">DAAD</span><span class="tag">Heilbronn University</span><span class="tag">BMBF</span></div>
+          <div class="links"><a href="university/engineering-graphics/certificate-hhn-daad.pdf" target="_blank" rel="noopener">Open certificate</a><a href="https://github.com/adm1nsys/education/tree/main/university/engineering-graphics" target="_blank" rel="noopener">Source</a></div>
         </div>
       </article>
 
