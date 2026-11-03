@@ -10,7 +10,8 @@ import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP_PREFIXES = ("http:", "https:", "mailto:", "data:", "javascript:")
+# external links, and the shared adm1nsys kit, which lives in the adm1nsys repository's site
+SKIP_PREFIXES = ("http:", "https:", "mailto:", "data:", "javascript:", "/adm1nsys/")
 # pages written for the site, not the original coursework
 SITE_PAGES = ["index.html", "university/engineering-graphics/index.html"]
 

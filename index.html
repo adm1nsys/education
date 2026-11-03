@@ -1,22 +1,26 @@
 <!doctype html>
-<html lang="de" data-title-en="Education · Heorhii Romanenko">
+<html lang="de" data-title-en="Education — adm1nsys">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ausbildung · Heorhii Romanenko</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ausbildung — adm1nsys</title>
 <meta name="description" content="Ausgewählte Arbeiten von Heorhii Romanenko aus Kolleg und Universität, 2022–2025: Computernetze, Abschlussprojekt (Web-App), AutoCAD-Zeichnungen, Magazinlayout.">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#070707" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f9f9f9" media="(prefers-color-scheme: light)">
+<link rel="icon" href="/adm1nsys/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Roboto:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="/adm1nsys/assets/css/style.css">
+<link rel="stylesheet" href="/adm1nsys/kit/project.css">
+<link rel="stylesheet" href="assets/works.css">
 </head>
 <body>
-<div class="backdrop" aria-hidden="true"></div>
+<div class="backdrop backdrop-short" aria-hidden="true"></div>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="eyebrow" data-en="Heorhii Romanenko · works from 2022 – 2025">Heorhii Romanenko · Arbeiten aus 2022 – 2025</div>
+<main class="wrap">
+  <header class="page-head">
+    <p class="eyebrow" data-en="Heorhii Romanenko · works from 2022 – 2025">Heorhii Romanenko · Arbeiten aus 2022 – 2025</p>
     <h1 data-en="Selected coursework">Ausgewählte Studienarbeiten</h1>
     <p class="lead" data-en="A selection of what I made while studying in Kharkiv — from network labs in Cisco Packet Tracer and a diploma web app to a printed magazine and AutoCAD drawings. Not every lab is here, only the ones worth showing; they are kept as they were made.">Eine Auswahl dessen, was ich während meines Studiums in Charkiw gemacht habe — von Netzwerklaboren in Cisco Packet Tracer und einer Web-App als Abschlussprojekt bis zu einem gedruckten Magazin und AutoCAD-Zeichnungen. Nicht jede Laborarbeit ist hier, nur die, die sich zu zeigen lohnen; sie sind so belassen, wie sie entstanden sind.</p>
     <div class="stats">
@@ -24,24 +28,19 @@
       <div class="stat"><b>17</b><span data-en="selected works">ausgewählte Arbeiten</span></div>
       <div class="stat"><b>9</b><span data-en="old repos merged with history">alte Repos samt Historie übernommen</span></div>
     </div>
-    <div class="jump">
-      <a class="btn primary" href="#diploma" data-en="Diploma project →">Abschlussprojekt →</a>
+    <div class="actions">
+      <a class="btn btn-primary" href="#diploma" data-en="Diploma project">Abschlussprojekt</a>
       <a class="btn" href="#college" data-en="College">Kolleg</a>
       <a class="btn" href="#university" data-en="University">Universität</a>
       <a class="btn" href="#certificate" data-en="DAAD certificate">DAAD-Zertifikat</a>
-      <a class="btn" href="https://github.com/adm1nsys/education" data-en="Source on GitHub">Quellcode auf GitHub</a>
     </div>
-  </div>
-</header>
+  </header>
 
-<main class="wrap">
-
-  <section class="block" id="college">
-    <div class="block-head">
-      <div class="eyebrow" data-en="College · selected works 2022 – 2024">Kolleg · ausgewählte Arbeiten 2022 – 2024</div>
-      <h2 data-en="Kharkiv Professional College of Information Technologies">Fachkolleg für Informationstechnologien Charkiw</h2>
-      <p data-en="Separate structural unit of the National Aerospace University “Kharkiv Aviation Institute”. Specialty 172 Telecommunications and Radio Engineering. Groups МЗ-21 → МЗ-31.">Struktureinheit der Nationalen Luft- und Raumfahrtuniversität „Charkiwer Luftfahrtinstitut“. Fachrichtung 172 Telekommunikation und Funktechnik. Gruppen МЗ-21 → МЗ-31.</p>
-    </div>
+  <div class="folds">
+      <details class="card fold works" id="college" open>
+        <summary><span><span class="eyebrow" data-en="College · selected works 2022 – 2024">Kolleg · ausgewählte Arbeiten 2022 – 2024</span><span class="fold-title" data-en="Kharkiv Professional College of Information Technologies">Fachkolleg für Informationstechnologien Charkiw</span></span><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="fold-body">
+          <p class="block-desc" data-en="Separate structural unit of the National Aerospace University “Kharkiv Aviation Institute”. Specialty 172 Telecommunications and Radio Engineering. Groups МЗ-21 → МЗ-31.">Struktureinheit der Nationalen Luft- und Raumfahrtuniversität „Charkiwer Luftfahrtinstitut“. Fachrichtung 172 Telekommunikation und Funktechnik. Gruppen МЗ-21 → МЗ-31.</p>
     <h3 class="group" data-en="Projects">Projekte</h3>
     <div class="grid">
       <article class="card featured" id="diploma">
@@ -106,14 +105,13 @@
         </div>
       </article>
     </div>
-  </section>
+        </div>
+      </details>
 
-  <section class="block" id="university">
-    <div class="block-head">
-      <div class="eyebrow" data-en="University · selected works 2023 – 2025">Universität · ausgewählte Arbeiten 2023 – 2025</div>
-      <h2 data-en="Kharkiv National University of Radio Electronics">Nationale Universität für Radioelektronik Charkiw</h2>
-      <p data-en="Publishing and printing, group ВПВПС-23-2. Layout, print production, color, type and engineering graphics.">Verlagswesen und Druck, Gruppe ВПВПС-23-2. Layout, Druckproduktion, Farbe, Typografie und Ingenieurgrafik.</p>
-    </div>
+      <details class="card fold works" id="university" open>
+        <summary><span><span class="eyebrow" data-en="University · selected works 2023 – 2025">Universität · ausgewählte Arbeiten 2023 – 2025</span><span class="fold-title" data-en="Kharkiv National University of Radio Electronics">Nationale Universität für Radioelektronik Charkiw</span></span><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+        <div class="fold-body">
+          <p class="block-desc" data-en="Publishing and printing, group ВПВПС-23-2. Layout, print production, color, type and engineering graphics.">Verlagswesen und Druck, Gruppe ВПВПС-23-2. Layout, Druckproduktion, Farbe, Typografie und Ingenieurgrafik.</p>
     <h3 class="group" data-en="AutoCAD &amp; technical drawing">AutoCAD & technisches Zeichnen</h3>
     <div class="grid">
       <article class="card featured" id="autocad">
@@ -266,17 +264,19 @@
         </div>
       </article>
     </div>
-  </section>
+        </div>
+      </details>
+
+    <details class="card fold" id="license">
+      <summary><span data-en="License">Lizenz</span><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="fold-body" data-en-html="<p>My works — drawings, layouts, reports and code — are under <a href=&quot;https://creativecommons.org/licenses/by/4.0/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>CC BY 4.0</a>: you may share and adapt them as long as you credit me.</p><p>Not covered: the <a href=&quot;university/engineering-graphics/certificate-hhn-daad.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;>certificate of participation</a>, a document issued by Heilbronn University, and third-party libraries in the course projects (jQuery, Vue and others), which keep their own licenses.</p>"><p>Meine Arbeiten — Zeichnungen, Layouts, Berichte und Code — stehen unter <a href="https://creativecommons.org/licenses/by/4.0/deed.de" target="_blank" rel="noopener">CC BY 4.0</a>: Sie dürfen sie teilen und bearbeiten, solange Sie mich als Urheber nennen.</p><p>Nicht erfasst: das <a href="university/engineering-graphics/certificate-hhn-daad.pdf" target="_blank" rel="noopener">Teilnahmezertifikat</a>, ein Dokument der Hochschule Heilbronn, und Bibliotheken Dritter in den Kursprojekten (jQuery, Vue und andere), die ihre eigenen Lizenzen behalten.</p></div>
+    </details>
+  </div>
 
   <p class="note" data-en="This is a selection, not every lab from those years. The works are shown as they were submitted. The only changes are fixes that keep them running in this new location (relative paths, removed junk files). Older standalone repositories were merged here with their full commit history.">Dies ist eine Auswahl, nicht jede Laborarbeit aus diesen Jahren. Die Arbeiten sind so gezeigt, wie sie abgegeben wurden; geändert wurde nur, was nötig ist, damit sie hier laufen (relative Pfade, entfernte Systemdateien). Frühere einzelne Repositories wurden samt vollständiger Commit-Historie hierher übernommen.</p>
 </main>
 
-<footer>
-  <div class="wrap">
-    Heorhii Romanenko · <a href="https://github.com/adm1nsys">github.com/adm1nsys</a> · <a href="https://adm1nsys.github.io/adm1nsys/">adm1nsys.github.io</a>
-  </div>
-</footer>
-
-<script src="assets/lang.js"></script>
+<script>window.PROJECT = { repo: 'adm1nsys/education', license: 'CC BY 4.0', langs: ['de', 'en'] };</script>
+<script src="/adm1nsys/kit/project.js"></script>
 </body>
 </html>

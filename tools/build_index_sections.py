@@ -187,14 +187,17 @@ UNIVERSITY = [
 ]
 
 
+CHEVRON = ('<svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+           'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>')
+
+
 def section(sid, eyebrow, title, desc, groups):
-    return f'''  <section class="block" id="{sid}">
-    <div class="block-head">
-      {t("div", eyebrow, "eyebrow")}
-      {t("h2", title)}
-      {t("p", desc)}
-    </div>
-''' + "\n\n".join(groups) + "\n  </section>"
+    """One collapsible section of the kit page: the institution in the summary, its works inside."""
+    return f'''      <details class="card fold works" id="{sid}" open>
+        <summary><span>{t("span", eyebrow, "eyebrow")}{t("span", title, "fold-title")}</span>{CHEVRON}</summary>
+        <div class="fold-body">
+          {t("p", desc, "block-desc")}
+''' + "\n\n".join(groups) + "\n        </div>\n      </details>"
 
 
 def main() -> None:
@@ -212,8 +215,8 @@ def main() -> None:
         ("Nationale Universität für Radioelektronik Charkiw", "Kharkiv National University of Radio Electronics"),
         ("Verlagswesen und Druck, Gruppe ВПВПС-23-2. Layout, Druckproduktion, Farbe, Typografie und Ingenieurgrafik.",
          "Publishing and printing, group ВПВПС-23-2. Layout, print production, color, type and engineering graphics."), UNIVERSITY)
-    s = re.sub(r'  <section class="block" id="college">.*?\n  </section>', lambda m: college, s, count=1, flags=re.S)
-    s = re.sub(r'  <section class="block" id="university">.*?\n  </section>', lambda m: university, s, count=1, flags=re.S)
+    s = re.sub(r'      <details class="card fold works" id="college".*?\n      </details>', lambda m: college, s, count=1, flags=re.S)
+    s = re.sub(r'      <details class="card fold works" id="university".*?\n      </details>', lambda m: university, s, count=1, flags=re.S)
     p.write_text(s, encoding="utf-8")
     print("cards:", s.count("<article"))
 

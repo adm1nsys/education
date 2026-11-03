@@ -1,10 +1,13 @@
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="assets/readme/banner-light.svg">
-  <img src="assets/readme/banner-dark.svg" alt="Selected coursework — Heorhii Romanenko, 2022–2025" width="100%">
+  <source media="(prefers-color-scheme: light)" srcset=".github/readme/banner-light.svg">
+  <img src=".github/readme/banner-dark.svg" alt="Selected coursework — Heorhii Romanenko, 2022–2025" width="100%">
 </picture>
 
 <p>
-  <a href="https://adm1nsys.github.io/education/"><img src="https://img.shields.io/badge/Open_the_site-070707?style=for-the-badge&logo=safari&logoColor=white" alt="Open the site"></a>
+  <a href="https://adm1nsys.github.io/education/"><img alt="Website" src="https://img.shields.io/badge/Website-070707?style=for-the-badge&logo=safari&logoColor=white"></a>
+  <a href="https://adm1nsys.github.io/education/#diploma"><img alt="Diploma project" src="https://img.shields.io/badge/Diploma_project-070707?style=for-the-badge&logo=javascript&logoColor=white"></a>
+  <a href="https://adm1nsys.github.io/education/#certificate"><img alt="DAAD certificate" src="https://img.shields.io/badge/DAAD_certificate-070707?style=for-the-badge"></a>
+  <a href="LICENSE"><img alt="License CC BY 4.0" src="https://img.shields.io/badge/License-CC_BY_4.0-070707?style=for-the-badge&logo=creativecommons&logoColor=white"></a>
 </p>
 
 A curated selection of my coursework from college and university in Kharkiv, 2022–2025: computer networks in Cisco Packet Tracer, a diploma web app, two semesters of AutoCAD drawings, a magazine layout and design work.
@@ -57,3 +60,7 @@ This repository replaces nine older standalone repositories. Each was merged in 
 | `sticker-pack` | [university/sticker-pack](university/sticker-pack) |
 | `grid-calculator` | [university/grid-calculator](university/grid-calculator) |
 | `lab`, `list`, `form`, `summary` | earliest labs — in the history only |
+
+## License
+
+My works — drawings, layouts, reports and code — are under [CC BY 4.0](LICENSE): share and adapt them with credit to Heorhii Romanenko. Not covered: the [certificate of participation](university/engineering-graphics/certificate-hhn-daad.pdf), a document issued by Heilbronn University, and third-party libraries in the course projects (jQuery, Vue and others), which keep their own licenses.

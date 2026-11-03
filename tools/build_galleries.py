@@ -91,26 +91,33 @@ WORKS = {
 }
 
 PAGE = """<!doctype html>
-<html lang="de" data-title-en="{title_en} · Education">
+<html lang="de" data-title-en="{title_en} · Education — adm1nsys">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{title_de} · Ausbildung</title>
-<link rel="icon" href="{up}assets/img/favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{title_de} · Ausbildung — adm1nsys</title>
+<meta name="theme-color" content="#070707" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f9f9f9" media="(prefers-color-scheme: light)">
+<link rel="icon" href="/adm1nsys/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&family=Roboto:wght@400;500&display=swap">
+<link rel="stylesheet" href="/adm1nsys/assets/css/style.css">
+<link rel="stylesheet" href="/adm1nsys/kit/project.css">
 <link rel="stylesheet" href="{up}assets/gallery.css">
 </head>
 <body>
-<div class="wrap page">
-  <a class="back" href="{up}" data-en="← Overview">← Übersicht</a>
-  {eyebrow}
-  {title}
-  {lead}
+<div class="backdrop backdrop-short" aria-hidden="true"></div>
+<main class="wrap gallery">
+  <header class="page-head">
+    {eyebrow}
+    {title}
+    {lead}
+  </header>
 {sections}
-</div>
-<script src="{up}assets/lang.js"></script>
+</main>
+<script>window.PROJECT = {{ repo: 'adm1nsys/education', license: 'CC BY 4.0', langs: ['de', 'en'], up: {{ href: '{up}', de: 'Übersicht', en: 'Overview' }} }};</script>
+<script src="/adm1nsys/kit/project.js"></script>
 </body>
 </html>
 """
@@ -138,7 +145,7 @@ def section(folder: Path, sub: str, heading) -> str:
         out.append('  <div class="grid">')
         for f in imgs:
             href = html.escape(prefix + f.name)
-            out.append(f'    <a class="tile" href="{href}"><img src="{href}" alt="{html.escape(f.stem)}" loading="lazy"></a>')
+            out.append(f'    <a class="sheet-tile" href="{href}"><img src="{href}" alt="{html.escape(f.stem)}" loading="lazy"></a>')
         out.append("  </div>")
     if other:
         out.append('  <ul class="files">')
@@ -157,7 +164,7 @@ def main() -> None:
         body = "\n".join(s for s in (section(folder, sub, h) for sub, h in sections) if s)
         (folder / "index.html").write_text(PAGE.format(
             title_de=html.escape(title[0]), title_en=html.escape(title[1], quote=True),
-            eyebrow=t("div", eyebrow, "eyebrow"), title=t("h1", title), lead=t("p", lead, "lead", markup=True),
+            eyebrow=t("p", eyebrow, "eyebrow"), title=t("h1", title), lead=t("p", lead, "lead", markup=True),
             sections=body, up=up), encoding="utf-8")
         print("wrote", rel + "/index.html")
 

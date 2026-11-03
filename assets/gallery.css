@@ -1,19 +1,14 @@
-/* Gallery pages: the main site's tokens and type, plus a grid of sheets and a file list */
-@import url("site.css");
+/* Gallery pages: the adm1nsys kit gives header, footer, type and tokens; this adds the grid of
+   sheets, the file lists and the certificate block, scoped to main.gallery */
 
-.page { padding: clamp(3rem, 8vw, 5rem) 0 4rem; }
-.back { font: 500 14px/1 var(--mono); color: var(--muted); text-decoration: none; }
-.back:hover { color: var(--text); }
-.page .eyebrow { margin-top: 2rem; }
-.page h1 { font-size: clamp(2rem, 5vw, 3.25rem); }
-.page .lead { margin-bottom: 1rem; }
-.page .lead a { color: var(--text); }
-.page h2 { margin: 2.5rem 0 1rem; font-size: 1.25rem; }
+.gallery .lead a { color: var(--text); }
+.gallery h2 { margin: 2.5rem 0 1rem; font-size: 1.25rem; }
+.gallery { padding-bottom: clamp(2rem, 5vw, 3rem); }
 
-.grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
-.tile { display: block; aspect-ratio: 3 / 4; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; transition: border-color 0.2s; }
-.tile img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.tile:hover { border-color: var(--muted); }
+.gallery .grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr)); }
+.sheet-tile { display: block; aspect-ratio: 3 / 4; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; transition: border-color 0.2s; }
+.sheet-tile img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.sheet-tile:hover { border-color: var(--muted); }
 
 .files { margin: 0.75rem 0 0; padding: 0; overflow: hidden; list-style: none; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
 .files li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.75rem 1rem; border-top: 1px solid var(--line-soft); }
@@ -33,6 +28,7 @@
 .sheet .files a:hover { color: var(--text); text-decoration: none; }
 .cert { display: grid; grid-template-columns: 220px 1fr; gap: 1.5rem; align-items: center; margin-bottom: 0.5rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
 .cert img { display: block; width: 100%; border: 1px solid var(--line); border-radius: 6px; }
+.cert h2 { margin: 0 0 0.5rem; }
 .cert p { margin: 0 0 0.75rem; color: var(--text-2); }
 .cert a { font: 500 14px/1.4 var(--mono); }
 .note-small { font-size: 14px; color: var(--muted); }

@@ -1,0 +1,61 @@
+/* Work cards on the education page. The page itself uses the adm1nsys kit (header, footer,
+   folds); everything here is scoped to .works or the page head so it does not touch the kit. */
+
+.page-head .stats { display: flex; flex-wrap: wrap; gap: 2rem; margin: 0 0 2rem; }
+.stat b { display: block; font: 500 1.75rem/1.1 var(--mono); color: var(--text); }
+.stat span { font: 400 12px/1.4 var(--mono); color: var(--muted); }
+
+/* Section summary: institution name with the period above it */
+.works > summary > span { display: grid; gap: 0.25rem; }
+.works > summary .eyebrow { margin: 0; }
+.works > summary .fold-title { font: 500 clamp(1.0625rem, 2vw, 1.375rem)/1.25 var(--mono); letter-spacing: -0.02em; color: var(--text); }
+.works .block-desc { max-width: 46rem; }
+.works .group { margin: 2rem 0 1rem; font: 500 12px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.works .block-desc + .group { margin-top: 1.25rem; }
+
+.works .grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
+
+.works .card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--chip);
+  transition: transform 0.2s, border-color 0.2s;
+}
+.works .card:hover { transform: translateY(-2px); border-color: var(--muted); }
+.works .card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.2fr 1fr; }
+
+.works .shot { display: block; margin: 0; aspect-ratio: 16 / 10; overflow: hidden; background: var(--panel-solid); border-bottom: 1px solid var(--line); }
+.works .featured .shot { aspect-ratio: auto; min-height: 20rem; max-height: 30rem; border-bottom: 0; border-right: 1px solid var(--line); }
+.works .shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.works .shot.contain img { object-fit: contain; padding: 12px; background: #fff; }
+.works .shot.phone img { object-fit: contain; background: #000; }
+.works .shot.cert { background: #e9e9ec; }
+.works .shot.cert img { object-position: center 22%; }
+
+.works .body { display: flex; flex: 1; flex-direction: column; gap: 0.625rem; padding: 1.25rem; }
+.works .date { font: 500 12px/1.4 var(--mono); letter-spacing: 0.04em; color: var(--muted); }
+.works .badge {
+  align-self: flex-start;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: var(--invert-bg);
+  color: var(--invert-text);
+  font: 500 12px/1.2 var(--mono);
+}
+.works .card h3 { margin: 0; font: 500 1.0625rem/1.3 var(--mono); letter-spacing: -0.01em; color: var(--text); }
+.works .orig { margin-top: -4px; font-size: 13px; color: var(--muted); }
+.works .card p { margin: 0; font-size: 15px; color: var(--text-2); }
+.works .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.works .tag { padding: 4px 8px; border: 1px solid var(--line); border-radius: 6px; font: 400 12px/1.2 var(--mono); color: var(--muted); }
+.works .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin-top: auto; padding-top: 0.5rem; }
+.works .links a { font: 500 14px/1.3 var(--mono); color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.works .links a::after { content: " ↗"; }
+.works .links a:hover { color: var(--text); }
+
+.note { margin: 0 0 clamp(2rem, 5vw, 3rem); padding: 1.25rem; border: 1px dashed var(--line); border-radius: var(--radius); color: var(--text-2); font-size: 15px; }
+
+@media (max-width: 760px) {
+  .works .card.featured { grid-template-columns: 1fr; }
+  .works .featured .shot { min-height: 0; aspect-ratio: 16 / 10; border-right: 0; border-bottom: 1px solid var(--line); }
+}
